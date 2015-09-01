@@ -1,0 +1,31 @@
+//<color>
+$BLACK: #212121;
+$CRIMSON: #ff5346;
+$ONYX: #1b2024;
+
+//ff
+$Roboto: Roboto, courier;
+$PTSans: 'PT Sans', courier;
+$PTSerif: 'PT Serif', courier;
+$slide-text: 'PT Serif', courier;
+
+
+//paths
+$icons-sprite: "../img/icons-sprite.png";
+
+
+
+%PTSansReg {
+    font-family: $PTSans;
+    font-weight: 300;
+}
+
+%PTSansNB {
+    font-family: $PTSans;
+    font-weight: 900;
+}
+
+%PTSansN {
+    font-family: $PTSans;
+    font-weight: 100;
+}

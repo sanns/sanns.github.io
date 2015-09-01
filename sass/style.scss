@@ -1,0 +1,23 @@
+//Не скомпилируется в отдельный .css:
+@import "bem/_header-simple";
+@import "bem/_navi";
+@import "bem/_cols";
+@import "bem/_slider";
+@import "bem/_main";
+@import "bem/_cards";
+@import "bem/_post";
+@import "bem/_sidebar";
+@import "bem/_mini-content";
+@import "bem/_footer";
+@import "bem/_icons";
+@import "_uncompiled_to_import";// можно просто @import "_uncompiled_to_import"
+//@import "_normalize.scss"; // можно просто @import "normalize"
+@import "_media";
+@import "_vars";
+
+
+
+
+//Скомпилируется в compiled_to_import.css:
+@import "compiled_to_import";
+    

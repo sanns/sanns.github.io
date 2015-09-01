@@ -1,0 +1,92 @@
+@import "_vars";
+
+.navi {
+    position: relative; /* for lvl2*/
+    text-align: right;
+    
+    @extend %PTSansReg;
+    font-size: 20px;
+    
+    list-style-type: none;
+}
+
+    .navi--closed .navi--lvl2 {
+        display: none;
+    }
+
+
+
+
+
+
+$black_padding: 22px;
+.navi__link {
+    display:block;
+    
+    box-sizing: border-box;
+    //height: 22px;
+    padding: 15px $black_padding;
+    
+    @extend %PTSansReg;
+    font-size: 20px;
+    
+    border-radius: 10px;
+}
+
+
+
+.navi__item {
+    
+    &:before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: calc(100% - 12px);
+        left: calc(50% - 7px);
+        
+        border-bottom: 12px black solid;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+    
+    display: inline-block;
+    position: relative;
+    
+    padding-bottom: 20px;
+    //padding-bottom: $black_padding+20px; //если ссылка inline-block
+    //border-bottom: 20px solid transparent;
+    
+    &:hover:before, &.active:before {
+        display: block;    
+    }
+    &:hover   .navi--lvl2, &.active   .navi--lvl2 {
+        display: block;
+    }
+    
+    &:hover .navi__link, 
+    &.active .navi__link {
+        color: $CRIMSON;
+        background-color: #1b2024;
+    }
+}
+
+
+
+.navi--lvl2 {
+    position: absolute;
+    left: -62px;
+    top: 100%;  //calc(100% + 21px);
+    max-width: 95vw;
+    width: 424px;
+    height: 212px;
+    border: 2px solid red;
+    
+    overflow: hidden;
+    list-style-type: none;
+    
+    z-index: 1000;
+    background-color: #1a1f23;
+    border-radius: 10px;
+    
+    
+}
