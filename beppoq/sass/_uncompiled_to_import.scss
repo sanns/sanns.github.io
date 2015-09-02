@@ -1,0 +1,384 @@
+//@import "compass/reset";
+@import "compass";
+@import "_vars";
+
+
+
+/* благодаря тому, что в бутстрапе колонки заданы в %, можно попытаться подправить ширину контейнера*/
+@media (min-width: 1200px) {
+    %container {
+        width: 1200px;
+    }
+}
+a:focus, a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body {
+    font-family: courier; //для видимости
+    //font-size: 62.5%; 1.4em = 14pt
+    background-color: #cfd8dc;
+}
+img {
+    max-width: 100%;   
+}
+.fw-500 {
+    font-weight: 500;
+}
+.posstat {
+    position: static;
+}
+.posrel {
+    position: relative;
+}
+.posabs {
+    position: absolute;
+}
+.bot0{
+    bottom: 0;
+}
+.disflex {
+    display: flex;
+    flex-flow: row wrap;
+}
+.disflexcol {
+    display: flex;
+    flex-flow: column wrap;
+}
+*, *:before, *:after {
+    //box-sizing: border-box;
+}
+*{
+    transition: width .5s ease-in-out;
+}
+.hide {
+    display: none;
+}
+.height {
+    height: 2000px;
+}
+.clear {
+    clear:both;
+}
+
+%row {
+	max-width: 980px;
+    padding: 0 10px;
+	margin: 0 auto;
+}
+%row:after {
+	clear: both;
+	display: table;
+	/*display:none;*/
+    content: "";
+}
+
+.containerow {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 10px;
+    &:before, &:after {
+        content: '';
+        clear: both;
+        display: table;
+        /*display:none;*/
+    }
+}
+.containerow2 {
+    @extend .containerow;
+    max-width: 980px;
+    padding: 0;
+}
+
+/* как переносить слова по буквам, когда слишком длинные?*/
+/* визуализация отладка*/
+%div{
+    background-image: none !important;
+    background-color: rgba(0,0,0, .10) !important;
+    box-shadow: 0 0 0 1px rgba(255,0,0, .5) !important;
+}
+%img:not([width]):not([height]) {
+    box-shadow: 0 0 0 2px  aquamarine 
+    , 0 0 0 4px  blue !important;
+}
+
+
+
+
+/* макет*/
+.logo {
+    @extend %PTSansNB;
+    font-size: 50px;
+    letter-spacing: 10.3px;
+    //line-height: 41px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+    
+    color: #fff;
+    b{
+        
+    }
+}
+.logo--img {
+    padding-left: 90px;
+    
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: left 50% ;
+    //background: url(../img/logo.png) no-repeat left center;
+}
+
+
+
+/* hamburger */
+.header__btn-menu {
+    float: right;
+    display: inline-block;
+    width: 60px;
+    height: 49px;
+    background-image: url(../img/sprt.svg);
+    background-size: 428px;
+    background-position: -65px -88px;
+    margin-right: 20px;
+}
+.header__btn-menu--closed {
+    background-position: -274px 13px;
+    background-size: 428px;
+}
+$switchMenuLook: 992px;
+@media only screen and (min-width: $switchMenuLook) {
+    .header__btn-menu {
+        display: none;
+    }
+}
+/* List of hamburger options */
+.header__list {
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    background-color: transparent;
+}
+.header__list li {
+    list-style: none;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #485361;
+}
+@media only screen and (min-width: $switchMenuLook) {
+    .header__list {
+        display: inline;
+        position: static;
+    }
+    .header__list li {
+        display: inline-block;
+        padding: 0 5px 8px;
+        border: none;
+    }
+}
+
+
+
+
+
+$signin-widget-border : white;
+.signin-widget {
+    border: 1px solid $signin-widget-border;
+    
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 15px;
+    text-align: center;
+    
+    border-radius: 4px;
+}
+.signin-widget a{
+    display: block;
+    padding: 13px;
+}
+.signin-widget__top {
+    
+     border-bottom: 1px solid $signin-widget-border;  
+    >a {
+        white-space: pre-wrap;
+        &:hover {
+            background-color: #eee;
+        }
+    }
+}
+.signin-widget__bot> a{
+    white-space: pre-wrap;
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+
+
+
+
+.header__nav {
+    &{ //nav.nav-wrapper 
+        //когда белое подменю на всю ширину экр
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        //left: 25%;
+    }
+    
+    .nav-tabs {
+
+        //когда белое подменю на всю ширину экр
+        $header__logoW: 17%;
+        //width: 100% - $header__logoW;
+        margin-left: $header__logoW;
+    }
+}
+.nav li{
+    //margin: 15px;
+    display: inline-block;
+}
+
+.nav-tabs {
+    border-bottom: none;//override bootstrap
+}
+.nav>li {
+    position: static; //override bootstrap
+    float: none;
+}
+////////////--------------
+.dropdown-menu {
+    top: auto;
+}
+ul.dropdown-menu.nav.nav-tabs {
+    position: absolute;
+    //top: 0;
+    left: 0;
+    width: 100%;
+}
+///----------------------
+.tabs{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.tabs>li {
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: -1px;
+}
+.nav-tabs--lvl2 {
+    margin-left: 0%;
+    font-family: $Roboto;
+    font-weight: 500;//med
+    font-size: 16px;
+    //line-height: ;
+    text-align: center;
+    
+    color: #000;
+}
+
+/**/
+.dropdown-menu.nav-tabs { //nav-tabs--lvl2
+    //min-width: 100%;
+    //position: fixed;
+   /* top: auto;
+    left: 0;
+    right: 0;
+    width: 100vw;*/
+    
+}
+
+
+
+
+.a,.b,.c {
+    padding: 0 15px;
+}
+.a{}
+.b{order: 10}
+.c{ 
+    justify-content: space-between;
+}
+
+.d{
+    
+}
+.e{
+
+}
+
+.Acol-md-2 {
+    flex-basis: 16.66666667%;
+}
+.Acol-md-3 {
+    flex-basis: 24%;
+}
+.Acol-md-7 {
+    flex-basis: 58.33333333%;
+}
+
+
+
+
+
+
+
+$bread-h: 75px;
+.breadcrumbs {
+    min-height: $bread-h;
+    
+    font-family: $Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: $bread-h;
+    a {
+        &:after {
+            content: "";
+        }
+    }
+}
+
+
+
+
+/*Central Part*/
+/* separated*/
+
+
+
+
+
+
+
+
+
+
+.svg-icons{
+    div {
+        height: 50px;
+    }
+}
+svg.svg-class {
+    /*height: 40px;
+    width: 50px;
+    margin-left: 15px;*/
+    
+    fill: #2b414d;
+    stroke: blue;
+    stroke-width: 1px;
+}
