@@ -1,0 +1,68 @@
+@import "compass";
+@import "_vars";
+
+.icons{
+    margin: 0;
+    padding: 0;
+    
+    list-style-type: none;
+}
+
+
+.icons__ic {
+    $tWidth: 16px;
+    $tH: 16px;
+    
+    display: inline-block;
+    position: relative;
+    width: $tWidth;
+    height: $tH;
+
+    &::before {
+        content: "";
+        position: absolute;
+        /*top: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100%);*/
+        width: $tWidth;
+        height: $tH;
+
+        opacity: 0.5;
+        background: url(../img/icons-sprite.png) no-repeat;
+        background-position: 0 0;
+        background-size: $tWidth; /*must be after bgi*/
+    }
+}
+
+
+
+
+
+
+
+
+.icons__ic--fb::before {
+    background-position: 0 -58px;
+    //-122px;
+}
+.icons__ic--dribbble::before {
+    background-position: 0 -77px;
+   // -164px;
+}
+.icons__ic--twitch::before {
+    background-position: 0 -96px;
+}
+.icons__ic--youtube::before {
+    background-position: 0 -127px;
+    
+}
+.icons__ic--youtube:hover::before {
+    background-position: 0 -126px;
+}
+.icons__ic--vimeo::before {
+    background-position: 0 -143px;
+    
+    &:hover {
+        background-position: 0 -273px;
+    }
+}
