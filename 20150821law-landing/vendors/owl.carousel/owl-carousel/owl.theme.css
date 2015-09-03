@@ -1,0 +1,158 @@
+
+
+
+.owl-theme {
+    box-sizing: border-box;
+    
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top: 20px;
+    margin-bottom: 20px;*/
+    /*overflow: hidden; не видно контролов , если за рамками*/
+}
+
+.owl-wrapper-outer {
+    /*уже overflow hidden*/
+    
+    max-height: 259px;
+    padding: 20px 0;
+    
+    border-radius: 4px;
+}
+
+
+
+
+
+
+
+
+
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+
+.owl-theme .owl-controls{
+    /*position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;*/
+    
+	text-align: center;
+}
+
+/* Styling Next and Prev buttons */
+.owl-theme .owl-controls .owl-buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 0;
+    
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin-top: 125px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 0;
+}
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+    width: 50px;
+    height: 50px;
+	font-size: 12px;
+    
+    border-radius: 50%;
+	background: rgba(255,255,255, .1) no-repeat 55% 50%;
+	filter: Alpha(Opacity=70);/*IE7 fix*/
+	opacity: 0.7;
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+
+
+/* different */
+.owl-theme .owl-controls.clickable .owl-buttons  .owl-prev{
+    background-image: url("../../../img/arr-l.svg"); 
+}
+.owl-theme .owl-controls.clickable .owl-buttons  .owl-next{
+    background-image: url("../../../img/arr-r.svg"); 
+}
+
+
+
+
+
+
+/* Styling Pagination*/
+
+.owl-pagination {
+    position: absolute;
+    top: calc(100% + 20px) ;
+    width: 100%;
+    
+    z-index: 1000;
+    
+}
+
+
+
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 12px;
+	height: 12px;
+	margin: 5px 7px;
+    
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: #869791;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+
+
+
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(AjaxLoader.gif) no-repeat center center
+}

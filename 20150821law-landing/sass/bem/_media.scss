@@ -1,0 +1,78 @@
+@import "vars";
+@import "compass";
+
+.media {
+    position: relative; /* for everything inside*/
+    width: 506px;
+    margin: 0 auto;
+    margin-bottom: 2px;
+}
+
+
+.media__pattern {
+    border-top:  151px solid transparentize( #4d3b7c, .1);
+    border-right: transparent 74px solid;
+    //border-left: solid 20px rgba( 0,0,0, 0.5);
+    width: 432px;
+    
+    mix-blend-mode: multiply;
+}
+//503px
+
+
+.media__body {
+    position: absolute;
+    top: 21px;
+    left: 115px;
+    width: 298px;
+    
+    white-space: pre-line;
+    @extend %ProximaNL;
+    font-size: 12px;
+    
+    color: #fff;
+}
+
+.media__img {
+    position: absolute;
+    top: -14px;
+    left: -82px;
+    
+    overflow: hidden;
+    width: 168px;
+    height: 168px;
+    border: 6px solid transparentize(#5849ae, .6 );
+    
+    border-radius: 50%;
+    z-index: 400;
+    
+    >img{
+        max-width: none;
+    }
+}
+
+
+
+
+
+.media__pattern--right {
+    border-left: transparent 74px solid;
+    border-right: none;
+}
+
+.media__img--right {
+    left: initial;
+    right: -82px;
+    
+}
+
+
+.media__body--right {
+    right: 114px;
+    left: initial;
+    
+    text-align: right;
+}
+
+
+

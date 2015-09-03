@@ -1,0 +1,82 @@
+@import "compass";
+@import "vars";
+
+
+
+/*slider*/
+
+.slider {
+    box-sizing: border-box;
+    max-height: 299px;
+    //max-height: 95vh;
+    //overflow: hidden;
+    
+    background-color: $ONYX;
+    // Needs latest Compass, add '@import "compass"' to your scss
+    // Permalink - use to edit and share this gradient:
+    // http://colorzilla.com/gradient-editor/#000000+0,ff5346+85&0.5+0,0.85+100
+    //@include filter-gradient(#80000000, #d9ff5346, vertical); // IE6-9
+    @include background-image(linear-gradient(bottom, rgba(0,0,0,0.5) 0%,rgba(255,83,70,0.8) 85%,rgba(255,83,70,0.85) 100%));
+    
+    img {
+        //max-width: 100%;
+    }
+}
+.slider__slide {
+    //overflow: hidden; /*при переходе на соседний слайд торчит содержимое*/
+    
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    /* align-content: center; */
+    align-items: center;
+    
+    //width: 15px; //что если разные слайды? Хочу сделать по контенту.
+    margin: 0 auto;
+    height: 259px;
+        
+    /* remove space under images*/
+    font-size: 0px;
+    line-height: 0px;
+    
+    /*text-align: center; /*когда картинка не влазит, она будет располагаться по левому краю. Центрироваться - только когда широкая область.*/
+}
+.inline-block-wrapper { /* сделает свою ширину по широчайшему контенту*/
+    
+    position: relative; /*для надписи на слайде*/
+    
+    /*position:relative;/* было для надписи на слайде*/
+}
+.slider__slide img {
+    max-height: 100%; //только при фикс. выс. родителя
+    max-width: 100%;
+    /*height: auto;
+    max-height: 400px;*/ /*как вариант из jcarusel*/
+    
+    
+    box-shadow: rgba( 0,0,0, .75) 0 0 7px ;
+}
+.slider__text {
+    position: absolute;
+    top: 178px;
+    left: 0;
+    width: 100%; /* not to be content width */
+    h2 {
+        //display: inline-block;
+        span {
+            border-bottom: 1px solid white;
+        }
+        margin-bottom: 34px;
+        font-family: $Roboto;
+        font-size: 48px;
+        font-weight: 100;
+        b{ text-transform: uppercase;}
+    }
+    font-family: $slide-text;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 24px;
+    color: white;
+}
+// inline-block-wrapper не испортил центрование слайдера. Странно, но приятно.
+// абзац теперь 5 колоночный улетает за пределы экрана при мобильной версии

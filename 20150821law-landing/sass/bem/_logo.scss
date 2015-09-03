@@ -1,0 +1,26 @@
+@import "vars";
+
+
+.logo {
+    box-sizing: border-box;
+    width: 360px;
+    
+    @extend %ProximaNB;
+    font-size: 28.91px;
+    text-transform: uppercase;
+    
+    color: #c69c6d;
+    b{
+        
+    }
+}
+.logo--img {
+    display: block;
+    padding-left: 100px + 26px;
+    height: 101px;
+    padding-top: 28px;
+    
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: left 50%;
+}

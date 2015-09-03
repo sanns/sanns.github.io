@@ -1,0 +1,20 @@
+@import "compass";
+@import "_vars";
+
+
+.sidebar {
+    
+}
+
+
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    
+	.sidebar *{
+        //display: none;
+    }
+    
+}
