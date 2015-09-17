@@ -1,0 +1,445 @@
+@import "_vars";
+
+
+$black-card-padding: 27px;
+.black-card {
+    //min-height: 473px;
+    //min-height: 403px;
+    
+    font-family: $Roboto;
+    font-weight: 100;
+    font-size: 18px;
+    overflow: hidden;
+    
+    list-style-type: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: $BLACK;
+    box-shadow: 0 0 2px 2px rgba(0,0,0, .7);
+}
+.black-card__item{
+    display: block;
+    
+    &:not(:first-child) {
+        border-top: 1px solid white;
+    }
+    //
+    padding: 9px 0;
+    //
+}
+.black-card__img{
+    width: 100%;    
+}
+
+
+$flat-card-padding: 27px;
+.flat-card {
+    //@extend .flat-card--ib;
+    
+    height: 336px;
+    //margin-bottom: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    list-style-type: none;
+    border-radius: 0px;
+    color: #000;
+    background-color: #fff;
+}
+.flat-card__head {
+    box-sizing: border-box;
+    min-height: 86px;
+    padding: 32px 43px 44px 64px;
+    
+    @extend %ProximaNR;
+    font-size: 28.91px;
+    line-height: 1;
+    vartical-align: middle;
+    text-align: right;
+    text-transform: uppercase;
+    
+    color: #594aaf;
+}
+.flat-card__content {
+    box-sizing: border-box;
+    //height: 250px;
+    //border: 9px solid transparent;
+    margin: 0 auto;
+    
+    overflow-y: auto;
+    
+}
+.flat-card__item{
+    display: block;
+    
+    &:not(:first-child) {
+        border-top: 1px solid white;
+    }
+    //
+    padding: 9px 0;
+    //
+}
+.flat-card__img{
+    max-width: 100%;
+}
+
+
+
+
+.flat-card--ib {
+    display: inline-block;
+    min-width: 260px;
+}
+
+
+
+.flat-card--1 {
+    .flat-card__content {
+        width: 239px;
+    }
+}
+.flat-card--2 {
+    max-width: 260px;
+    margin-left: 5px;
+    height: 177px;
+    
+    overflow: hidden;
+    background-color:
+    
+    transparentize(#c69c6d, .1);
+    .flat-card__content {
+        padding: 31px 30px 29px 30px;
+        width: 100%;
+        
+        @extend %ProximaNL;
+        font-size: 18px;
+        line-height: 1.5;
+        //white-space: pre-wrap;
+        overflow: hidden;
+        
+        color: #fff;
+    }
+    
+}
+
+
+
+
+
+.item__badge {
+    float: right; 
+
+    &:before {
+        content: "+";
+    }
+    .cat__link--active+&:before {
+        content: "-";
+    }
+}
+
+
+
+
+//20150912 тотально переделываю
+.cat {
+    //@extend .flat-card__content;
+    margin-bottom: 30px; /*not less  than hover-margin. So it will collapse*/
+    
+    font-size: 18px;
+    line-height: 30px;
+    text-transform: uppercase;
+    list-style-type: none;
+}
+.cat--lvl1 {
+    margin-left: 85px;
+    font-family: sans-serif;
+}
+.cat--lvl2 {
+    margin-left: 0;
+    padding-left: 0;
+    
+    @extend %ProximaNL;
+    font-size: 20px;
+    line-height: 24px; /* линейкой*/
+    text-transform: none;
+    list-style-type:disc;
+    list-style-position:inside;
+    
+    //color: #;
+}
+
+.cat__item {
+    //@extend .black-card__item;
+}
+
+/*ahref activity*/
+.cat__link--active , .cat__link:hover {
+    //text-decoration: underline;
+} /* не получается так */
+.cat--lvl2__link--active, .cat--lvl2__link:hover {
+    @extend .cat__link--active; //чтобы не добавлять 2 класса в разметке
+    color: #fff;
+}
+
+
+/* li activity*/
+.cat--closed .cat {
+    display: none;
+}
+
+.cat__item--lvl1 {
+    
+    //лень бэм классы ставить.
+    >.cat__link {
+        position: relative; /* for :before*/
+        padding: 8px 0 7px;
+        z-index: 0; /* for z-context being this li*/
+    }
+    >.cat__link:hover,
+    &.cat__item--active>.cat__link {
+        background-color: $catHoverReal;
+    }
+    >.cat__link:hover::before,
+    &.cat__item--active>.cat__link::before {
+        visibility: visible;
+        opacity: 1;
+    }
+    >.cat__link::before {
+        content: '';
+        position: absolute;
+        top: -43px;
+        left: -148px;
+        display: block;
+        width: 376px;
+        height: 126px;
+        
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image: url(../img/base-shape.png);
+        background-repeat: no-repeat;
+        transition: opacity .2s ease-in-out .0s, visibility .2s ease-in-out .0s;
+    }
+}
+
+%cat--lvl2,
+.cat__item--active>.cat--lvl2{ /* not bem. If there is inner elements, then displays them block*/
+    display: block;
+}
+/*cascading antibem: */
+.cat--lvl1 >.cat__item--active
+, .cat--lvl1 >.cat__item:hover { 
+    margin-bottom: 30px; /* not padding, so it will collapse with other mg.*/
+}
+.cat--lvl2:target {
+    @extend %cat--lvl2;
+}
+
+
+
+
+.cat * {
+    
+    transition: padding .2s ease-in-out 0s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.colors__color > span {
+    
+}
+.colors>input {
+    display: none;
+}
+.colors>label {
+    width: 30px; //em типа, чтоб пальцем  можно было коснуться при любом масштабе.
+    height: 30px;
+    margin-right:19px;
+    
+    transform: skewX(-30deg)    translateX(10px);
+    opacity: .5;
+}
+/*//новый цвет каждый цикл*/
+    $colors_qty: 8;
+    //@for $i from 1 to //$colors_qty {
+     //   $col#{$i}: red;
+    //}//так нельзя
+$col1: #eeab56; $col2: #ffab91; $col3: #aed581; $col4: #bdbdbd; $col5:#40c4ff; $col6:#9575cd; $col7:#f06292; $col8:#fff176;
+    $i: 1;
+    @each $color in $col1,$col2,$col3,$col4,$col5,$col6,$col7,$col8 {
+        .colors>label:nth-of-type(#{$i}) { background-color: $color ; }
+        //
+        $i : $i +1;
+    }
+.colors>input:checked + label {
+    outline: 1px solid white;
+    box-shadow: inset 0 0 0 2px white; /* fallback*/
+    opacity: 1;
+}
+
+
+
+
+
+.sizes {
+    //прям флексбокс
+    word-spacing: 14px;
+    
+}
+.size-badge {
+    display: inline-block;
+    box-sizing: border-box;
+    min-width: 40px;
+    min-height: 30px;
+    padding: 5px 7px;
+    margin-top: 15px;
+    //margin-right: 14px;
+    
+    font-family: $PTSerif;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: middle;
+    
+    color: #000;
+    background-color: #e0e0e0;
+    //border-radius: 10px;
+}
+.size-badge:nth-child(4n) {
+    //margin-right: 0;
+}
+
+
+
+
+
+
+
+
+/* CONTENT */
+
+.content > .row {
+  //  margin-bottom: 30px;
+}
+
+
+
+.card-product {
+    @extend .black-card;
+    
+    position: relative;
+    //min-height: 404px;
+    margin-bottom: 30px;
+}
+.card--more {
+    @extend .black-card;
+    
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+    
+    font-family: $PTSerif;
+    font-weight: 500; //reg
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+}
+///
+.card_over {
+    position: absolute;    
+    bottom: 0;
+    width: 100%;
+    
+    text-align: center;
+    >h2 {
+        font-family: $PTSerif;
+        font-weight: 300;
+        font-size: 18px;
+        text-transform: uppercase;
+        >span {
+            font-weight: 700;
+        }
+    }
+    >.card_over1 {
+        font-family: $Roboto; //black
+        font-weight: 900;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+    >.card_over2 {
+        font-family: $PTSerif;//med
+        font-weight: 300;
+        font-size: 18px;
+        
+        color: #bdbdbd;
+    }
+    >.card_over3 {
+        font-family: $Roboto;//med
+        font-weight: 400;
+        font-size: 24px;
+    }
+    
+    color: #fff;
+}
+%ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 79px;
+    height: 40px;
+    
+    font-family: $PTSerif;
+    font-weight: 900;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    font-style: italic;
+    
+    border-bottom-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.ribbon-style {
+    @extend %ribbon;
+        
+    background-color: #00838f;
+    color: #fff;
+}
+.ribbon-style2 {
+    @extend %ribbon;
+        
+    background-color: #d91456;
+    color: #fff;
+}
+.ribbon-new {
+    @extend %ribbon;
+    
+    background-color: #689f38;
+    color: #fff;
+}
+
+.ribbon-cool {
+    @extend %ribbon;
+    
+    background-color: #e64a19;
+    color: #fff;
+}
+
+
+

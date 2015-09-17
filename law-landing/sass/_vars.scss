@@ -1,0 +1,55 @@
+//<color>
+$BLACK: #010102;
+$CRIMSON: #ff5346;
+$ONYX: #1b2024;
+$bronzInit: #c69c6d;
+$BRONZE: transparentize(#c69c6d, .51); //transp
+$BRONZE_L: transparentize(#c69c6d, .1);//#8e7150; //transp
+$menu-hover: transparentize(#c69c6d, .74);
+$catHoverReal: #D59D6B;
+$VIOLET: #6e4aba;
+$TEXT_BACK: #594aaf;
+$TEXT_FRONT: rgba(255,255,255, .5);
+
+//ff
+$Roboto: Roboto, courier;
+$PTSans: 'PT Sans', courier;
+$PTSerif: 'PT Serif', courier;
+$slide-text: 'PT Serif', courier;
+$ProximaNB: courier;
+$ProximaNR: courier;
+
+
+//paths
+$icons-sprite: "../img/icons-sprite.png";
+
+
+
+%PTSansReg {
+    font-family: $PTSans;
+    font-weight: 300;
+}
+
+%PTSansNB {
+    font-family: $PTSans;
+    font-weight: 900;
+}
+
+%PTSansN {
+    font-family: $PTSans;
+    font-weight: 100;
+}
+
+%ProximaNB {
+    font-family: $ProximaNB;
+    font-weight: 900;
+}
+%ProximaNR {
+    font-family: $ProximaNR;
+    font-weight: 500;
+}
+
+%ProximaNL, %ProximaL {
+    font-family: $ProximaNB;
+    font-weight: 100;
+}
