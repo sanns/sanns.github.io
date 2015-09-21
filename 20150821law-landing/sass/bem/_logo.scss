@@ -24,3 +24,11 @@
     background-repeat: no-repeat;
     background-position: left 50%;
 }
+
+.logo--img1 {
+    @extend .logo--img;
+    width: 0;
+    padding: 0;
+    padding-left: 100px;
+}
+

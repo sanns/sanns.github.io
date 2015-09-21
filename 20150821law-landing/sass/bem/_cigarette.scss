@@ -8,7 +8,7 @@ $w: 226px + 85px;
     display:block;
     
     width: $w;
-    margin-top: 13px;
+    margin-top: 11px;
     
     color: #fff;
 }
@@ -44,6 +44,7 @@ $w: 226px + 85px;
     @extend %ProximaNL;
     font-size: 11.59px;
     overflow: hidden;
+    text-transform: uppercase;
     
     background-color: $BRONZE;
     background-color: transparentize(#c69c6d, .1);

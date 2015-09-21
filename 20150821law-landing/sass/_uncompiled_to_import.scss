@@ -30,6 +30,9 @@ body {
     background-color: #cfd8dc;
     color: #fff;
 }
+body.when-scrolling {
+    pointer-events: none;
+}
 img {
     max-width: 100%;   
 }
@@ -38,6 +41,15 @@ input:focus{
 }
 input{
     width: 100%;
+}
+input[type="submit"] {
+    cursor: pointer;
+}
+area:focus {
+    outline: none;
+}
+area {
+    outline: red 1px solid;
 }
 *, *:before, *:after {
     //box-sizing: border-box;
@@ -71,7 +83,7 @@ input{
     display: flex;
     flex-flow: column wrap;
 }
-.hide {
+.hide { //hide продублирован в конце, чтоб действовал при любых других стилях
     display: none;
 }
 .height {
@@ -355,11 +367,11 @@ $bread-h: 75px;
 
 .screen1 {
     
-    height: 707px;//bgi
+    min-height: 707px;//bgi
     //.containerow {
         background-image: url(../img/scr1bg.png);
     background-repeat: no-repeat;
-        background-position: 50% top ;
+        background-position: calc(50% - 5px) top ;
     //}
     
     .h2 {
@@ -382,39 +394,91 @@ $bread-h: 75px;
     }
     .span1 {
         display: inline-block;
+        box-sizing: border-box;
         height: 69px;
         width: 444px;
         margin-left: 19px;
         margin-top: 36px;
         padding: 24px;
-        padding-right: 43px;
+        //padding-right: 43px;
         
+        @extend %ProximaNB;
+        font-size: 18.37px;
+        text-transform: uppercase;
         
         //background-color: #5e36b1;
         background-image: url(../img/btn1.png);
         background-repeat: no-repeat;
+    }
+    
+    .imgmap{
+        /* spare background. But if file doesn't exist, it won't help.*/
+        height: 69px; /* bg*/
+        width: 444px;
+        margin-left: 19px;
+        margin-top: 36px;
+        
+        background-image: url(../img/btn1.png);
+        background-repeat: no-repeat;
+    }
+    .imgmap__text {
+        top: 0;
+        left: 0;
+        
+        padding: 24px;
+        //padding-right: 43px;
+        
+        @extend %ProximaNB;
+        font-size: 18.37px;
+        text-transform: uppercase;
+    }
+    
+    
+    .logo2 {
+        display: inline-block;
+        min-width: 30%;
+        min-height: 6px; /* if inside is posabs*/
+        
+        text-align: center;
+    }
+
+    .logo2__link {
+        width: 174px; /*bg*/
+        height: 173px;
+        margin-top: -50px;
+        
+        border-radius: 50%;
+        background-image: url(../img/logo-big.png);
+        background-repeat: no-repeat;
+        background-position: center center;
     }
 }
 
 
 
 .screen2 {
-    height: 625px;//d
+    min-height: 625px;//d
     
     background-image: url(../img/scr2bg.jpg);
     background-repeat: no-repeat;
-    background-position: 50% top;
+    background-position: calc(50% - 5px) top;
+    //background-position: -9px top;
+    background-size: cover;
     
     .containerow {
         position: relative; /* for signup*/
     }
     
     h2 {
-        float: right;
+        //float: right; //заменяю на
+        margin-left: auto;
+        
+        box-sizing: border-box;
         width: 420px;
-        height: 73px;
-        margin-bottom: 50px;
-        margin-top: 25px;
+        max-height: 147px;
+        padding-bottom: 50px;
+        padding-top: 23px;
+        margin-right: 35px;
         
         @extend %ProximaNL;
         font-size: 55.86px;
@@ -422,32 +486,40 @@ $bread-h: 75px;
         text-align: right;
         line-height: 1;
         
-        text-shadow: 1px 1px #594aaf; 
-        
-        span {
-            font-size: 25.36px;
-        }
+        text-shadow: 3px 3px $TEXT_BACK; 
+        color: $TEXT_FRONT;
+    }
+    span {
+        display: block; /* removes lh*/
+        font-size: 25.36px;
+        line-height: 1; /* doesn't decrease*/
     }
     
-    .cat {
-        margin-left: 85px;
+    .base-shape {
+        
     }
     
     .posabs1 {
         position: absolute;
         top: 148px;
-        right: 50px;
+        right: 35px;
         width: 300px;
+        text-align: right;
+        
         
         .button {
             display: inline-block;
-            width: 292px;
-            height: 70px;
+            width: 293px;/* bg*/
+            height: 69px;
             
             background-image: url(../img/btn2.png);
             background-repeat: no-repeat;
         }
         p {
+            display: inline-block;
+            width: 233px;
+            margin-top: 8px;
+            
             @extend %ProximaNL;
             font-size: 17px;
             text-align: right;
@@ -455,10 +527,33 @@ $bread-h: 75px;
             color: #594aaf;
         }
     }
+    
+    .imgmap{
+        /* spare background. But if file doesn't exist, it won't help.*/
+        height: 69px; /* bg*/
+        width: 444px;
+        margin-left: 19px;
+        margin-top: 36px;
+        
+        background-image: url(../img/btn1.png);
+        background-repeat: no-repeat;
+    }
+    .imgmap__text {
+        top: 0;
+        right: 0;
+        
+        padding: 20px 35px;
+        
+        @extend %ProximaNB;
+        font-size: 30.07px;
+        text-transform: uppercase;
+    }
+    
+    
 }
 
 .screen3 {
-    height: 644px;
+    min-height: 644px;
     
     h2 {
         width: 50%;
@@ -474,25 +569,25 @@ $bread-h: 75px;
     }
     
     .icons {
-        margin-top: 224px;
+        margin-top: 219px;
     }
     
 }
 
 .screen4 {
     
-    height: 691px;   
+    min-height: 691px;   
     
     background-image: url(../img/scr4bg.jpg);
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: calc(50% - 5px) top;
     
     h2 {
         float: right;
         width: 420px;
         height: 73px;
         margin-bottom: 50px;
-        margin-top: 25px;
+        margin-top: 50px;
         
         @extend %ProximaNL;
         font-size: 55.86px;
@@ -501,11 +596,11 @@ $bread-h: 75px;
         line-height: 1;
         
         color: #c69c6d;
-        text-shadow: 1px 1px #594aaf;
+        text-shadow: -3px -3px #594aaf;
     }
     
     .else {
-        padding: 17px 0;
+        padding: 5px 0;
         @extend %ProximaNR;
         font-size: 28.91px;
         text-align: center;
@@ -516,7 +611,7 @@ $bread-h: 75px;
 
 .screen5 {
     position: relative; /*for layer*/
-    height: 618px;
+    min-height: 618px;
     border-top: transparentize(#683e0e, 0.8);
     
     .h2 {
@@ -581,6 +676,7 @@ $bread-h: 75px;
         font-size: 20px;
         line-height: 48px;
         text-align: center;
+        text-transform: uppercase;
         
         color: #fff;
         background-color: #7462d3;
@@ -607,10 +703,12 @@ $bread-h: 75px;
 
 
 footer {
-    height: 142px;
+    height: 142px; /*d*/
+    padding-top: 16px;
 }
 .mails {
     text-align: right;
+    line-height: 1.5;
 }
 
 

@@ -112,7 +112,8 @@ $flat-card-padding: 27px;
         width: 100%;
         
         @extend %ProximaNL;
-        font-size: 20px;
+        font-size: 18px;
+        line-height: 1.5;
         //white-space: pre-wrap;
         overflow: hidden;
         
@@ -139,28 +140,32 @@ $flat-card-padding: 27px;
 
 
 
-
+//20150912 тотально переделываю
 .cat {
     //@extend .flat-card__content;
-    margin-bottom: 10px;
-    padding: 15px 27px;
+    margin-bottom: 30px; /*not less  than hover-margin. So it will collapse*/
     
     font-size: 18px;
     line-height: 30px;
     text-transform: uppercase;
     list-style-type: none;
 }
+.cat--lvl1 {
+    margin-left: 85px;
+    font-family: sans-serif;
+}
 .cat--lvl2 {
     margin-left: 0;
     padding-left: 0;
     
-    font-family: $PTSerif;
-    font-size: 18px;
-    line-height: 24px;
-    text-transform: capitalize;
-    //list-style-type: none;
+    @extend %ProximaNL;
+    font-size: 20px;
+    line-height: 24px; /* линейкой*/
+    text-transform: none;
+    list-style-type:disc;
+    list-style-position:inside;
     
-    color: #bcbcbc;
+    //color: #;
 }
 
 .cat__item {
@@ -178,21 +183,58 @@ $flat-card-padding: 27px;
 
 
 /* li activity*/
-.cat--closed .cat--lvl2 {
+.cat--closed .cat {
     display: none;
 }
+
+.cat__item--lvl1 {
+    
+    //лень бэм классы ставить.
+    >.cat__link {
+        position: relative; /* for :before*/
+        padding: 8px 0 7px;
+        z-index: 0; /* for z-context being this li*/
+    }
+    >.cat__link:hover,
+    &.cat__item--active>.cat__link {
+        background-color: $catHoverReal;
+    }
+    >.cat__link:hover::before,
+    &.cat__item--active>.cat__link::before {
+        visibility: visible;
+        opacity: 1;
+    }
+    >.cat__link::before {
+        content: '';
+        position: absolute;
+        top: -43px;
+        left: -148px;
+        display: block;
+        width: 376px;
+        height: 126px;
+        
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image: url(../img/base-shape.png);
+        background-repeat: no-repeat;
+        transition: opacity .2s ease-in-out .0s, visibility .2s ease-in-out .0s;
+    }
+}
+
 %cat--lvl2,
 .cat__item--active>.cat--lvl2{ /* not bem. If there is inner elements, then displays them block*/
     display: block;
 }
-.cat__item--active
-, .cat__item:hover { 
-    padding-bottom: 15px;
+/*cascading antibem: */
+.cat--lvl1 >.cat__item--active
+, .cat--lvl1 >.cat__item:hover { 
+    margin-bottom: 30px; /* not padding, so it will collapse with other mg.*/
 }
 .cat--lvl2:target {
     @extend %cat--lvl2;
 }
-
 
 
 

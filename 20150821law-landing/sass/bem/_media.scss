@@ -5,7 +5,7 @@
     position: relative; /* for everything inside*/
     width: 506px;
     margin: 0 auto;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 
@@ -54,21 +54,22 @@
 
 
 
-
+//18пикселей влево помимо просто отражения
 .media__pattern--right {
+    margin-left: -18px;
     border-left: transparent 74px solid;
     border-right: none;
 }
 
 .media__img--right {
     left: initial;
-    right: -82px;
+    right: -82px + 18px; 
     
 }
 
 
 .media__body--right {
-    right: 114px;
+    right: 114px + 18px;
     left: initial;
     
     text-align: right;

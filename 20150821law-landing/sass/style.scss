@@ -14,9 +14,9 @@
 @import "bem/_mini-content";
 @import "bem/_footer";
 @import "bem/_icons";
+@import "bem/_cards";
 @import "_uncompiled_to_import";// можно просто @import "_uncompiled_to_import"
 //@import "_normalize.scss"; // можно просто @import "normalize"
-@import "bem/_cards";
 
 @import "_media";
 @import "_vars";
@@ -24,6 +24,16 @@
 
 
 
+
+
+
+
 //Скомпилируется в compiled_to_import.css:
 @import "compiled_to_import";
     
+
+
+.hide { //hide продублирован в конце, чтоб действовал при любых других стилях
+    display: none !important;
+}
+
