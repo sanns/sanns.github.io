@@ -100,9 +100,14 @@ area {
 }
 %row:after {
 	clear: both;
-	display: table;
+	display: table; /* for margins in special cases?*/
 	/*display:none;*/
     content: "";
+}
+.afterclear {
+    content: '';
+    display: table;
+    clear: both;
 }
 
 .containerow {
@@ -500,11 +505,14 @@ $bread-h: 75px;
     }
     
     .posabs1 {
-        position: absolute;
-        top: 148px;
-        right: 35px;
+        float: right;
+        margin-right: 35px;
+        //position: absolute;
+        //top: 148px;
+        //right: 35px;
         width: 300px;
         text-align: right;
+        
         
         
         .button {

@@ -1,11 +1,12 @@
-.afterclear {
-    content: '';
-    display: table;
-    clear: both;
-}
+
 
 .cols {
+    border: 2px solid $VIOLET;
+    box-sizing: border-box;
     height: 100%;
+    
+    background-color: #1a1f23;
+    border-radius: 10px;
     
     &:after {
         @extend .afterclear;

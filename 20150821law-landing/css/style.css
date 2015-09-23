@@ -184,7 +184,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-color: rgba(198, 156, 109, 0.9);
 }
 
-/* line 3, ../sass/bem/_navi.scss */
+/* line 2, ../sass/bem/_navi.scss */
+.navi-background {
+  background-image: url(../img/navi-bg.jpg);
+  background-image: url(../img/navi-bg.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* line 15, ../sass/bem/_navi.scss */
 .navi {
   position: relative;
   /* for lvl2*/
@@ -193,33 +201,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: center;
   list-style-type: none;
   text-transform: uppercase;
+  z-index: 1000;
+  /* to be on top of everything when opened*/
   color: #c69c6d;
-  background-image: url(../img/navi-bg.jpg);
-  background-image: url(../img/navi-bg.png);
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
-/* line 22, ../sass/bem/_navi.scss */
-.navi--closed .navi--lvl2 {
+/* line 30, ../sass/bem/_navi.scss */
+.navi--closed .navi__subthing {
   display: none;
 }
 
-/* line 27, ../sass/bem/_navi.scss */
+/* line 35, ../sass/bem/_navi.scss */
 .navi .containerow, .navi .containerow2 {
   height: 100%;
 }
 
-/* line 34, ../sass/bem/_navi.scss */
+/* line 42, ../sass/bem/_navi.scss */
 .navi__item {
   position: relative;
   display: inline-block;
   height: 100%;
   /* for link*/
+  min-width: 6em;
+  /*appx 6 letters*/
   width: 17.5%;
-  padding-bottom: 42px;
   vertical-align: top;
-  background-color: blanchedalmond;
   /* 
    &:nth-child(1){
        //width: 122px;
@@ -241,49 +247,52 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
       // width: 157px;
        width: 20%;
    }*/
+  /*&:hover   .navi--lvl2, &.active   .navi--lvl2 {
+      display: block;
+  }//delete*/
 }
-/* line 69, ../sass/bem/_navi.scss */
+/* line 76, ../sass/bem/_navi.scss */
 .navi__item:before {
   display: none;
   content: '';
   position: absolute;
-  top: calc(100% - 12px);
+  top: calc(100% + 22px + 20px - 12px);
   left: calc(50% - 7px);
-  border-bottom: 12px black solid;
+  border-bottom: 12px red solid;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 }
-/* line 81, ../sass/bem/_navi.scss */
+/* line 88, ../sass/bem/_navi.scss */
 .navi__item:hover:before, .navi__item.active:before {
   display: block;
 }
-/* line 84, ../sass/bem/_navi.scss */
-.navi__item:hover .navi--lvl2, .navi__item.active .navi--lvl2 {
+/* line 94, ../sass/bem/_navi.scss */
+.navi__item:hover .navi__subthing, .navi__item.active .navi__subthing {
   display: block;
 }
-/* line 89, ../sass/bem/_navi.scss */
+/* line 100, ../sass/bem/_navi.scss */
 .navi__item:hover .navi__link, .navi__item.active .navi__link {
   color: #ff5346;
   background-color: rgba(198, 156, 109, 0.26);
 }
-/* line 95, ../sass/bem/_navi.scss */
+/* line 106, ../sass/bem/_navi.scss */
 .navi__item:first-child {
   text-align: left;
 }
-/* line 97, ../sass/bem/_navi.scss */
+/* line 108, ../sass/bem/_navi.scss */
 .navi__item:first-child .navi__link {
   margin-left: -25px;
 }
-/* line 101, ../sass/bem/_navi.scss */
-.navi__item:last-child {
+/* line 112, ../sass/bem/_navi.scss */
+.navi__item:last-of-type {
   text-align: right;
 }
-/* line 103, ../sass/bem/_navi.scss */
-.navi__item:last-child .navi__link {
+/* line 114, ../sass/bem/_navi.scss */
+.navi__item:last-of-type .navi__link {
   margin-right: -25px;
 }
 
-/* line 110, ../sass/bem/_navi.scss */
+/* line 121, ../sass/bem/_navi.scss */
 .navi__link {
   display: inline-block;
   padding: 29px 25px;
@@ -291,35 +300,128 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 100%;
 }
 
-/* line 125, ../sass/bem/_navi.scss */
-.navi--lvl2 {
+/* line 132, ../sass/bem/_navi.scss */
+.navi__subthing {
   position: absolute;
   left: -62px;
   top: 100%;
+  border-top: 42px solid transparent;
+}
+
+/* line 142, ../sass/bem/_navi.scss */
+.navi--lvl2 {
   max-width: 100vw;
   width: 424px;
   height: 212px;
-  border: 2px solid #6e4aba;
-  overflow: hidden;
+  /*overflow: hidden;*/
+  /* ╨╖╨░╤З╨╡╨╝?*/
   list-style-type: none;
   z-index: 1000;
+}
+
+/* line 155, ../sass/bem/_navi.scss */
+.navi__item--pdbt {
+  padding-bottom: 42px;
+}
+/* line 159, ../sass/bem/_navi.scss */
+.navi__item--pdbt:before {
+  display: none;
+  content: '';
+  position: absolute;
+  top: calc(100% - 12px);
+}
+
+/* line 166, ../sass/bem/_navi.scss */
+.navi__item--block {
+  width: auto;
+  border-bottom: 1px solid;
+}
+
+/* line 175, ../sass/bem/_navi.scss */
+.ham {
+  display: inline-block;
+  vertical-align: top;
+  height: 100%;
+}
+
+/* line 180, ../sass/bem/_navi.scss */
+.ham__link {
+  display: inline-block;
+  /* for pd top*/
+  padding: 29px 25px;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+/* line 188, ../sass/bem/_navi.scss */
+.ham__label:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+
+/* line 193, ../sass/bem/_navi.scss */
+#ham__check1 {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  /* line 205, ../sass/bem/_navi.scss */
+  .navi__item--block-copy, #ham__check1:checked + .navi .navi__item {
+    width: auto;
+    border-bottom: 1px solid;
+  }
+
+  /* line 211, ../sass/bem/_navi.scss */
+  .navi__item {
+    display: none;
+    height: auto;
+  }
+
+  /* line 215, ../sass/bem/_navi.scss */
+  .navi--closed .navi__subthing {
+    position: static;
+    display: block;
+  }
+
+  /* line 222, ../sass/bem/_navi.scss */
+  #ham__check1 {
+    display: none;
+  }
+  /* line 226, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .navi .navi__item {
+    display: block;
+    background-color: blueviolet;
+  }
+  /* line 233, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .navi .navi__item:first-child {
+    text-align: inherit;
+  }
+  /* line 236, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .navi .navi__item:first-child .navi__link {
+    margin-left: auto;
+  }
+  /* line 239, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .navi .logo2 {
+    display: none;
+  }
+}
+/*min*/
+@media only screen and (min-width: 768px) {
+  /* line 257, ../sass/bem/_navi.scss */
+  .ham {
+    display: none;
+  }
+}
+/* line 3, ../sass/bem/_cols.scss */
+.cols {
+  border: 2px solid #6e4aba;
+  box-sizing: border-box;
+  height: 100%;
   background-color: #1a1f23;
   border-radius: 10px;
 }
 
-/* line 1, ../sass/bem/_cols.scss */
-.afterclear, .cols:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-/* line 7, ../sass/bem/_cols.scss */
-.cols {
-  height: 100%;
-}
-
-/* line 16, ../sass/bem/_cols.scss */
+/* line 17, ../sass/bem/_cols.scss */
 .cols__col {
   float: left;
   box-sizing: border-box;
@@ -332,11 +434,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   list-style-type: none;
   color: #fff;
 }
-/* line 18, ../sass/bem/_cols.scss */
+/* line 19, ../sass/bem/_cols.scss */
 .cols__col:first-child {
   border-left: none;
 }
-/* line 39, ../sass/bem/_cols.scss */
+/* line 40, ../sass/bem/_cols.scss */
 .cols__col li {
   padding-bottom: 19px;
 }
@@ -1484,12 +1586,19 @@ area {
   clear: both;
 }
 
-/* line 108, ../sass/_uncompiled_to_import.scss */
+/* line 107, ../sass/_uncompiled_to_import.scss */
+.afterclear, .cols:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* line 113, ../sass/_uncompiled_to_import.scss */
 .containerow, .containerow2 {
   max-width: 805px;
   margin: 0 auto;
 }
-/* line 112, ../sass/_uncompiled_to_import.scss */
+/* line 117, ../sass/_uncompiled_to_import.scss */
 .containerow:before, .containerow2:before, .containerow:after, .containerow2:after {
   content: '';
   clear: both;
@@ -1497,7 +1606,7 @@ area {
   /*display:none;*/
 }
 
-/* line 119, ../sass/_uncompiled_to_import.scss */
+/* line 124, ../sass/_uncompiled_to_import.scss */
 .containerow2 {
   max-width: 980px;
   padding: 0;
@@ -1506,7 +1615,7 @@ area {
 /* ╨║╨░╨║ ╨┐╨╡╤А╨╡╨╜╨╛╤Б╨╕╤В╤М ╤Б╨╗╨╛╨▓╨░ ╨┐╨╛ ╨▒╤Г╨║╨▓╨░╨╝, ╨║╨╛╨│╨┤╨░ ╤Б╨╗╨╕╤И╨║╨╛╨╝ ╨┤╨╗╨╕╨╜╨╜╤Л╨╡?*/
 /* debug helping*/
 /* MOCK-UP start*/
-/* line 141, ../sass/_uncompiled_to_import.scss */
+/* line 146, ../sass/_uncompiled_to_import.scss */
 .wrapper {
   min-height: 3431px;
   background-color: #010102;
@@ -1515,7 +1624,7 @@ area {
 }
 
 /* hamburger */
-/* line 151, ../sass/_uncompiled_to_import.scss */
+/* line 156, ../sass/_uncompiled_to_import.scss */
 .header__btn-menu {
   float: right;
   display: inline-block;
@@ -1527,20 +1636,20 @@ area {
   margin-right: 20px;
 }
 
-/* line 161, ../sass/_uncompiled_to_import.scss */
+/* line 166, ../sass/_uncompiled_to_import.scss */
 .header__btn-menu--closed {
   background-position: -274px 13px;
   background-size: 428px;
 }
 
 @media only screen and (min-width: 992px) {
-  /* line 167, ../sass/_uncompiled_to_import.scss */
+  /* line 172, ../sass/_uncompiled_to_import.scss */
   .header__btn-menu {
     display: none;
   }
 }
 /* List of hamburger options */
-/* line 172, ../sass/_uncompiled_to_import.scss */
+/* line 177, ../sass/_uncompiled_to_import.scss */
 .header__list {
   display: none;
   position: absolute;
@@ -1551,7 +1660,7 @@ area {
   background-color: transparent;
 }
 
-/* line 181, ../sass/_uncompiled_to_import.scss */
+/* line 186, ../sass/_uncompiled_to_import.scss */
 .header__list li {
   list-style: none;
   text-align: center;
@@ -1560,20 +1669,20 @@ area {
 }
 
 @media only screen and (min-width: 992px) {
-  /* line 188, ../sass/_uncompiled_to_import.scss */
+  /* line 193, ../sass/_uncompiled_to_import.scss */
   .header__list {
     display: inline;
     position: static;
   }
 
-  /* line 192, ../sass/_uncompiled_to_import.scss */
+  /* line 197, ../sass/_uncompiled_to_import.scss */
   .header__list li {
     display: inline-block;
     padding: 0 5px 8px;
     border: none;
   }
 }
-/* line 204, ../sass/_uncompiled_to_import.scss */
+/* line 209, ../sass/_uncompiled_to_import.scss */
 .signin-widget {
   border: 1px solid white;
   font-size: 18px;
@@ -1583,81 +1692,81 @@ area {
   border-radius: 4px;
 }
 
-/* line 214, ../sass/_uncompiled_to_import.scss */
+/* line 219, ../sass/_uncompiled_to_import.scss */
 .signin-widget a {
   display: block;
   padding: 13px;
 }
 
-/* line 218, ../sass/_uncompiled_to_import.scss */
+/* line 223, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top {
   border-bottom: 1px solid white;
 }
-/* line 221, ../sass/_uncompiled_to_import.scss */
+/* line 226, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top > a {
   white-space: pre-wrap;
 }
-/* line 223, ../sass/_uncompiled_to_import.scss */
+/* line 228, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top > a:hover {
   background-color: #eee;
 }
 
-/* line 228, ../sass/_uncompiled_to_import.scss */
+/* line 233, ../sass/_uncompiled_to_import.scss */
 .signin-widget__bot > a {
   white-space: pre-wrap;
 }
-/* line 230, ../sass/_uncompiled_to_import.scss */
+/* line 235, ../sass/_uncompiled_to_import.scss */
 .signin-widget__bot > a:hover {
   background-color: #eee;
 }
 
-/* line 240, ../sass/_uncompiled_to_import.scss */
+/* line 245, ../sass/_uncompiled_to_import.scss */
 .header__nav {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-/* line 248, ../sass/_uncompiled_to_import.scss */
+/* line 253, ../sass/_uncompiled_to_import.scss */
 .header__nav .nav-tabs {
   margin-left: 17%;
 }
 
-/* line 256, ../sass/_uncompiled_to_import.scss */
+/* line 261, ../sass/_uncompiled_to_import.scss */
 .nav li {
   display: inline-block;
 }
 
-/* line 261, ../sass/_uncompiled_to_import.scss */
+/* line 266, ../sass/_uncompiled_to_import.scss */
 .nav-tabs {
   border-bottom: none;
 }
 
-/* line 264, ../sass/_uncompiled_to_import.scss */
+/* line 269, ../sass/_uncompiled_to_import.scss */
 .nav > li {
   position: static;
   float: none;
 }
 
-/* line 269, ../sass/_uncompiled_to_import.scss */
+/* line 274, ../sass/_uncompiled_to_import.scss */
 .dropdown-menu {
   top: auto;
 }
 
-/* line 272, ../sass/_uncompiled_to_import.scss */
+/* line 277, ../sass/_uncompiled_to_import.scss */
 ul.dropdown-menu.nav.nav-tabs {
   position: absolute;
   left: 0;
   width: 100%;
 }
 
-/* line 279, ../sass/_uncompiled_to_import.scss */
+/* line 284, ../sass/_uncompiled_to_import.scss */
 .tabs {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
 
-/* line 284, ../sass/_uncompiled_to_import.scss */
+/* line 289, ../sass/_uncompiled_to_import.scss */
 .tabs > li {
   position: relative;
   display: block;
@@ -1665,7 +1774,7 @@ ul.dropdown-menu.nav.nav-tabs {
   margin-bottom: -1px;
 }
 
-/* line 290, ../sass/_uncompiled_to_import.scss */
+/* line 295, ../sass/_uncompiled_to_import.scss */
 .nav-tabs--lvl2 {
   margin-left: 0%;
   font-family: Roboto, courier;
@@ -1676,7 +1785,7 @@ ul.dropdown-menu.nav.nav-tabs {
 }
 
 /**/
-/* line 302, ../sass/_uncompiled_to_import.scss */
+/* line 307, ../sass/_uncompiled_to_import.scss */
 .dropdown-menu.nav-tabs {
   /* top: auto;
    left: 0;
@@ -1684,37 +1793,37 @@ ul.dropdown-menu.nav.nav-tabs {
    width: 100vw;*/
 }
 
-/* line 315, ../sass/_uncompiled_to_import.scss */
+/* line 320, ../sass/_uncompiled_to_import.scss */
 .a, .b, .c {
   padding: 0 15px;
 }
 
-/* line 319, ../sass/_uncompiled_to_import.scss */
+/* line 324, ../sass/_uncompiled_to_import.scss */
 .b {
   order: 10;
 }
 
-/* line 320, ../sass/_uncompiled_to_import.scss */
+/* line 325, ../sass/_uncompiled_to_import.scss */
 .c {
   justify-content: space-between;
 }
 
-/* line 331, ../sass/_uncompiled_to_import.scss */
+/* line 336, ../sass/_uncompiled_to_import.scss */
 .Acol-md-2 {
   flex-basis: 16.66666667%;
 }
 
-/* line 334, ../sass/_uncompiled_to_import.scss */
+/* line 339, ../sass/_uncompiled_to_import.scss */
 .Acol-md-3 {
   flex-basis: 24%;
 }
 
-/* line 337, ../sass/_uncompiled_to_import.scss */
+/* line 342, ../sass/_uncompiled_to_import.scss */
 .Acol-md-7 {
   flex-basis: 58.33333333%;
 }
 
-/* line 348, ../sass/_uncompiled_to_import.scss */
+/* line 353, ../sass/_uncompiled_to_import.scss */
 .breadcrumbs {
   min-height: 75px;
   font-family: Roboto, courier;
@@ -1722,21 +1831,21 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 16px;
   line-height: 75px;
 }
-/* line 356, ../sass/_uncompiled_to_import.scss */
+/* line 361, ../sass/_uncompiled_to_import.scss */
 .breadcrumbs a:after {
   content: "";
 }
 
 /*Central Part*/
 /* separated*/
-/* line 368, ../sass/_uncompiled_to_import.scss */
+/* line 373, ../sass/_uncompiled_to_import.scss */
 .screen1 {
   min-height: 707px;
   background-image: url(../img/scr1bg.png);
   background-repeat: no-repeat;
   background-position: calc(50% - 5px) top;
 }
-/* line 377, ../sass/_uncompiled_to_import.scss */
+/* line 382, ../sass/_uncompiled_to_import.scss */
 .screen1 .h2 {
   margin-left: 15px;
   margin-top: 48px;
@@ -1745,14 +1854,14 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 55.86px;
   text-transform: uppercase;
 }
-/* line 387, ../sass/_uncompiled_to_import.scss */
+/* line 392, ../sass/_uncompiled_to_import.scss */
 .screen1 .p1 {
   margin-left: 20px;
   margin-bottom: 25px;
   width: 393px;
   font-size: 16px;
 }
-/* line 395, ../sass/_uncompiled_to_import.scss */
+/* line 400, ../sass/_uncompiled_to_import.scss */
 .screen1 .span1 {
   display: inline-block;
   box-sizing: border-box;
@@ -1766,7 +1875,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 414, ../sass/_uncompiled_to_import.scss */
+/* line 419, ../sass/_uncompiled_to_import.scss */
 .screen1 .imgmap {
   /* spare background. But if file doesn't exist, it won't help.*/
   height: 69px;
@@ -1777,7 +1886,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 424, ../sass/_uncompiled_to_import.scss */
+/* line 429, ../sass/_uncompiled_to_import.scss */
 .screen1 .imgmap__text {
   top: 0;
   left: 0;
@@ -1785,7 +1894,7 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 18.37px;
   text-transform: uppercase;
 }
-/* line 437, ../sass/_uncompiled_to_import.scss */
+/* line 442, ../sass/_uncompiled_to_import.scss */
 .screen1 .logo2 {
   display: inline-block;
   min-width: 30%;
@@ -1793,7 +1902,7 @@ ul.dropdown-menu.nav.nav-tabs {
   /* if inside is posabs*/
   text-align: center;
 }
-/* line 445, ../sass/_uncompiled_to_import.scss */
+/* line 450, ../sass/_uncompiled_to_import.scss */
 .screen1 .logo2__link {
   width: 174px;
   /*bg*/
@@ -1805,7 +1914,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-position: center center;
 }
 
-/* line 459, ../sass/_uncompiled_to_import.scss */
+/* line 464, ../sass/_uncompiled_to_import.scss */
 .screen2 {
   min-height: 625px;
   background-image: url(../img/scr2bg.jpg);
@@ -1813,12 +1922,12 @@ ul.dropdown-menu.nav.nav-tabs {
   background-position: calc(50% - 5px) top;
   background-size: cover;
 }
-/* line 468, ../sass/_uncompiled_to_import.scss */
+/* line 473, ../sass/_uncompiled_to_import.scss */
 .screen2 .containerow, .screen2 .containerow2 {
   position: relative;
   /* for signup*/
 }
-/* line 472, ../sass/_uncompiled_to_import.scss */
+/* line 477, ../sass/_uncompiled_to_import.scss */
 .screen2 h2 {
   margin-left: auto;
   box-sizing: border-box;
@@ -1834,7 +1943,7 @@ ul.dropdown-menu.nav.nav-tabs {
   text-shadow: 3px 3px #594aaf;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 492, ../sass/_uncompiled_to_import.scss */
+/* line 497, ../sass/_uncompiled_to_import.scss */
 .screen2 span {
   display: block;
   /* removes lh*/
@@ -1842,15 +1951,14 @@ ul.dropdown-menu.nav.nav-tabs {
   line-height: 1;
   /* doesn't decrease*/
 }
-/* line 502, ../sass/_uncompiled_to_import.scss */
+/* line 507, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 {
-  position: absolute;
-  top: 148px;
-  right: 35px;
+  float: right;
+  margin-right: 35px;
   width: 300px;
   text-align: right;
 }
-/* line 510, ../sass/_uncompiled_to_import.scss */
+/* line 518, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 .button {
   display: inline-block;
   width: 293px;
@@ -1859,7 +1967,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn2.png);
   background-repeat: no-repeat;
 }
-/* line 518, ../sass/_uncompiled_to_import.scss */
+/* line 526, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 p {
   display: inline-block;
   width: 233px;
@@ -1868,7 +1976,7 @@ ul.dropdown-menu.nav.nav-tabs {
   text-align: right;
   color: #594aaf;
 }
-/* line 531, ../sass/_uncompiled_to_import.scss */
+/* line 539, ../sass/_uncompiled_to_import.scss */
 .screen2 .imgmap {
   /* spare background. But if file doesn't exist, it won't help.*/
   height: 69px;
@@ -1879,7 +1987,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 541, ../sass/_uncompiled_to_import.scss */
+/* line 549, ../sass/_uncompiled_to_import.scss */
 .screen2 .imgmap__text {
   top: 0;
   right: 0;
@@ -1888,11 +1996,11 @@ ul.dropdown-menu.nav.nav-tabs {
   text-transform: uppercase;
 }
 
-/* line 555, ../sass/_uncompiled_to_import.scss */
+/* line 563, ../sass/_uncompiled_to_import.scss */
 .screen3 {
   min-height: 644px;
 }
-/* line 558, ../sass/_uncompiled_to_import.scss */
+/* line 566, ../sass/_uncompiled_to_import.scss */
 .screen3 h2 {
   width: 50%;
   margin-left: 30px;
@@ -1902,19 +2010,19 @@ ul.dropdown-menu.nav.nav-tabs {
   text-transform: uppercase;
   color: #fff;
 }
-/* line 571, ../sass/_uncompiled_to_import.scss */
+/* line 579, ../sass/_uncompiled_to_import.scss */
 .screen3 .icons {
   margin-top: 219px;
 }
 
-/* line 577, ../sass/_uncompiled_to_import.scss */
+/* line 585, ../sass/_uncompiled_to_import.scss */
 .screen4 {
   min-height: 691px;
   background-image: url(../img/scr4bg.jpg);
   background-repeat: no-repeat;
   background-position: calc(50% - 5px) top;
 }
-/* line 585, ../sass/_uncompiled_to_import.scss */
+/* line 593, ../sass/_uncompiled_to_import.scss */
 .screen4 h2 {
   float: right;
   width: 420px;
@@ -1928,7 +2036,7 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #c69c6d;
   text-shadow: -3px -3px #594aaf;
 }
-/* line 602, ../sass/_uncompiled_to_import.scss */
+/* line 610, ../sass/_uncompiled_to_import.scss */
 .screen4 .else {
   padding: 5px 0;
   font-size: 28.91px;
@@ -1936,14 +2044,14 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #594aaf;
 }
 
-/* line 612, ../sass/_uncompiled_to_import.scss */
+/* line 620, ../sass/_uncompiled_to_import.scss */
 .screen5 {
   position: relative;
   /*for layer*/
   min-height: 618px;
   border-top: rgba(104, 62, 14, 0.2);
 }
-/* line 617, ../sass/_uncompiled_to_import.scss */
+/* line 625, ../sass/_uncompiled_to_import.scss */
 .screen5 .h2 {
   height: 106px;
   padding-left: 32px;
@@ -1952,13 +2060,13 @@ ul.dropdown-menu.nav.nav-tabs {
   line-height: 106px;
   color: #fff;
 }
-/* line 628, ../sass/_uncompiled_to_import.scss */
+/* line 636, ../sass/_uncompiled_to_import.scss */
 .screen5 .containerow, .screen5 .containerow2 {
   position: relative;
   /* for floating lay*/
   z-index: 500;
 }
-/* line 632, ../sass/_uncompiled_to_import.scss */
+/* line 640, ../sass/_uncompiled_to_import.scss */
 .screen5 .floating-layer {
   position: absolute;
   top: 32px;
@@ -1966,12 +2074,12 @@ ul.dropdown-menu.nav.nav-tabs {
   width: 392px;
   height: 100%;
 }
-/* line 639, ../sass/_uncompiled_to_import.scss */
+/* line 647, ../sass/_uncompiled_to_import.scss */
 .screen5 .bshad {
   box-shadow: 11px 11px 0 0 #594aaf;
   margin-bottom: 24px;
 }
-/* line 643, ../sass/_uncompiled_to_import.scss */
+/* line 651, ../sass/_uncompiled_to_import.scss */
 .screen5 .stick {
   position: absolute;
   top: -31px;
@@ -1981,12 +2089,12 @@ ul.dropdown-menu.nav.nav-tabs {
   width: 4px;
   background-color: #594aaf;
 }
-/* line 652, ../sass/_uncompiled_to_import.scss */
+/* line 660, ../sass/_uncompiled_to_import.scss */
 .screen5 input {
   border: none;
   margin-bottom: 11px;
 }
-/* line 656, ../sass/_uncompiled_to_import.scss */
+/* line 664, ../sass/_uncompiled_to_import.scss */
 .screen5 input[type="text"] {
   display: block;
   box-sizing: border-box;
@@ -1998,7 +2106,7 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #666;
   background-color: #e6e6e6;
 }
-/* line 670, ../sass/_uncompiled_to_import.scss */
+/* line 678, ../sass/_uncompiled_to_import.scss */
 .screen5 .submit {
   display: block;
   width: 239px;
@@ -2013,7 +2121,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-repeat: no-repeat;
 }
 
-/* line 693, ../sass/_uncompiled_to_import.scss */
+/* line 701, ../sass/_uncompiled_to_import.scss */
 .map {
   width: 100%;
   margin: 0 auto;
@@ -2023,25 +2131,25 @@ ul.dropdown-menu.nav.nav-tabs {
   text-align: center;
 }
 
-/* line 705, ../sass/_uncompiled_to_import.scss */
+/* line 713, ../sass/_uncompiled_to_import.scss */
 footer {
   height: 142px;
   /*d*/
   padding-top: 16px;
 }
 
-/* line 709, ../sass/_uncompiled_to_import.scss */
+/* line 717, ../sass/_uncompiled_to_import.scss */
 .mails {
   text-align: right;
   line-height: 1.5;
 }
 
-/* line 718, ../sass/_uncompiled_to_import.scss */
+/* line 726, ../sass/_uncompiled_to_import.scss */
 .svg-icons div {
   height: 50px;
 }
 
-/* line 722, ../sass/_uncompiled_to_import.scss */
+/* line 730, ../sass/_uncompiled_to_import.scss */
 svg.svg-class {
   /*height: 40px;
   width: 50px;
