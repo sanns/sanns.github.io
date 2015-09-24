@@ -222,8 +222,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: inline-block;
   height: 100%;
   /* for link*/
-  min-width: 6em;
-  /*appx 6 letters*/
+  min-width: 3em;
+  /*appx 3 letters*/
   width: 17.5%;
   vertical-align: top;
   /* 
@@ -247,52 +247,41 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
       // width: 157px;
        width: 20%;
    }*/
-  /*&:hover   .navi--lvl2, &.active   .navi--lvl2 {
-      display: block;
-  }//delete*/
 }
-/* line 76, ../sass/bem/_navi.scss */
+/* line 77, ../sass/bem/_navi.scss */
 .navi__item:before {
   display: none;
   content: '';
   position: absolute;
   top: calc(100% + 22px + 20px - 12px);
   left: calc(50% - 7px);
-  border-bottom: 12px red solid;
+  border-bottom: 12px #6e4aba solid;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
 }
-/* line 88, ../sass/bem/_navi.scss */
-.navi__item:hover:before, .navi__item.active:before {
-  display: block;
-}
-/* line 94, ../sass/bem/_navi.scss */
-.navi__item:hover .navi__subthing, .navi__item.active .navi__subthing {
-  display: block;
-}
-/* line 100, ../sass/bem/_navi.scss */
+/* line 90, ../sass/bem/_navi.scss */
 .navi__item:hover .navi__link, .navi__item.active .navi__link {
   color: #ff5346;
   background-color: rgba(198, 156, 109, 0.26);
 }
-/* line 106, ../sass/bem/_navi.scss */
+/* line 96, ../sass/bem/_navi.scss */
 .navi__item:first-child {
   text-align: left;
 }
-/* line 108, ../sass/bem/_navi.scss */
+/* line 98, ../sass/bem/_navi.scss */
 .navi__item:first-child .navi__link {
   margin-left: -25px;
 }
-/* line 112, ../sass/bem/_navi.scss */
+/* line 102, ../sass/bem/_navi.scss */
 .navi__item:last-of-type {
   text-align: right;
 }
-/* line 114, ../sass/bem/_navi.scss */
+/* line 104, ../sass/bem/_navi.scss */
 .navi__item:last-of-type .navi__link {
   margin-right: -25px;
 }
 
-/* line 121, ../sass/bem/_navi.scss */
+/* line 111, ../sass/bem/_navi.scss */
 .navi__link {
   display: inline-block;
   padding: 29px 25px;
@@ -300,15 +289,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 100%;
 }
 
-/* line 132, ../sass/bem/_navi.scss */
+/* line 122, ../sass/bem/_navi.scss */
 .navi__subthing {
   position: absolute;
   left: -62px;
   top: 100%;
-  border-top: 42px solid transparent;
 }
 
-/* line 142, ../sass/bem/_navi.scss */
+/* line 133, ../sass/bem/_navi.scss */
 .navi--lvl2 {
   max-width: 100vw;
   width: 424px;
@@ -319,11 +307,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   z-index: 1000;
 }
 
-/* line 155, ../sass/bem/_navi.scss */
+/* line 146, ../sass/bem/_navi.scss */
 .navi__item--pdbt {
   padding-bottom: 42px;
 }
-/* line 159, ../sass/bem/_navi.scss */
+/* line 150, ../sass/bem/_navi.scss */
 .navi__item--pdbt:before {
   display: none;
   content: '';
@@ -331,85 +319,135 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   top: calc(100% - 12px);
 }
 
-/* line 166, ../sass/bem/_navi.scss */
+/* line 157, ../sass/bem/_navi.scss */
 .navi__item--block {
   width: auto;
   border-bottom: 1px solid;
 }
 
-/* line 175, ../sass/bem/_navi.scss */
+/* line 165, ../sass/bem/_navi.scss */
 .ham {
   display: inline-block;
   vertical-align: top;
   height: 100%;
 }
 
-/* line 180, ../sass/bem/_navi.scss */
+/* line 170, ../sass/bem/_navi.scss */
 .ham__link {
   display: inline-block;
   /* for pd top*/
-  padding: 29px 25px;
   box-sizing: border-box;
   height: 100%;
+  padding: 29px 25px;
+}
+/* line 176, ../sass/bem/_navi.scss */
+.ham__link::before {
+  content: "тШ░";
 }
 
-/* line 188, ../sass/bem/_navi.scss */
+/* line 182, ../sass/bem/_navi.scss */
 .ham__label:hover {
   color: #ccc;
   cursor: pointer;
 }
 
-/* line 193, ../sass/bem/_navi.scss */
+/* line 187, ../sass/bem/_navi.scss */
 #ham__check1 {
   display: none;
 }
 
-@media only screen and (max-width: 768px) {
-  /* line 205, ../sass/bem/_navi.scss */
-  .navi__item--block-copy, #ham__check1:checked + .navi .navi__item {
+/* line 190, ../sass/bem/_navi.scss */
+.ham--added {
+  display: none;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  /* line 208, ../sass/bem/_navi.scss */
+  .navi__item--block-copy, #ham__check1:checked ~ * .navi .navi__item {
     width: auto;
     border-bottom: 1px solid;
   }
 
-  /* line 211, ../sass/bem/_navi.scss */
+  /* line 214, ../sass/bem/_navi.scss */
   .navi__item {
     display: none;
     height: auto;
   }
 
-  /* line 215, ../sass/bem/_navi.scss */
+  /* line 218, ../sass/bem/_navi.scss */
   .navi--closed .navi__subthing {
     position: static;
     display: block;
   }
 
-  /* line 222, ../sass/bem/_navi.scss */
+  /* line 225, ../sass/bem/_navi.scss */
   #ham__check1 {
     display: none;
   }
-  /* line 226, ../sass/bem/_navi.scss */
-  #ham__check1:checked + .navi .navi__item {
+  /* line 229, ../sass/bem/_navi.scss */
+  #ham__check1:checked ~ * .navi .navi__item {
     display: block;
-    background-color: blueviolet;
-  }
-  /* line 233, ../sass/bem/_navi.scss */
-  #ham__check1:checked + .navi .navi__item:first-child {
-    text-align: inherit;
+    background-color: #23193a;
   }
   /* line 236, ../sass/bem/_navi.scss */
-  #ham__check1:checked + .navi .navi__item:first-child .navi__link {
-    margin-left: auto;
+  #ham__check1:checked ~ * .navi .navi__item:first-child {
+    text-align: inherit;
   }
   /* line 239, ../sass/bem/_navi.scss */
-  #ham__check1:checked + .navi .logo2 {
+  #ham__check1:checked ~ * .navi .navi__item:first-child .navi__link {
+    margin-left: auto;
+  }
+  /* line 242, ../sass/bem/_navi.scss */
+  #ham__check1:checked ~ * .navi .logo2 {
     display: none;
   }
+  /* line 245, ../sass/bem/_navi.scss */
+  #ham__check1:checked ~ * .navi .ham--added {
+    display: inline-block;
+  }
+  /* line 251, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .wrapper {
+    position: relative;
+    /*for :before-height%*/
+  }
+  /* line 253, ../sass/bem/_navi.scss */
+  #ham__check1:checked + .wrapper:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(26, 11, 40, 0.72);
+    background-image: url(../img/pattern.png);
+    background-repeat: repeat;
+    z-index: 1000;
+    /* less than dropdown menu*/
+  }
 }
-/*min*/
-@media only screen and (min-width: 768px) {
-  /* line 257, ../sass/bem/_navi.scss */
+/*
+ *min
+*/
+@media only screen and (min-width: 600px) {
+  /* line 280, ../sass/bem/_navi.scss */
   .ham {
     display: none;
+  }
+
+  /* line 294, ../sass/bem/_navi.scss */
+  .navi__subthing--bdt, .navi__subthing {
+    border-top: 42px solid transparent;
+  }
+
+  /* line 301, ../sass/bem/_navi.scss */
+  .navi__item--inclusive:hover:before, .navi__item:hover:before, .navi__item--inclusive.active:before, .active.navi__item:before {
+    display: block;
+  }
+  /* line 304, ../sass/bem/_navi.scss */
+  .navi__item--inclusive:hover .navi__subthing, .navi__item:hover .navi__subthing, .navi__item--inclusive.active .navi__subthing, .active.navi__item .navi__subthing {
+    display: block;
   }
 }
 /* line 3, ../sass/bem/_cols.scss */
@@ -1618,13 +1656,14 @@ area {
 /* line 146, ../sass/_uncompiled_to_import.scss */
 .wrapper {
   min-height: 3431px;
-  background-color: #010102;
+  overflow: auto;
+  /* to not get out of range*/
   background-image: url(../img/bg.jpg);
   background-repeat: repeat-x;
 }
 
 /* hamburger */
-/* line 156, ../sass/_uncompiled_to_import.scss */
+/* line 157, ../sass/_uncompiled_to_import.scss */
 .header__btn-menu {
   float: right;
   display: inline-block;
@@ -1636,20 +1675,20 @@ area {
   margin-right: 20px;
 }
 
-/* line 166, ../sass/_uncompiled_to_import.scss */
+/* line 167, ../sass/_uncompiled_to_import.scss */
 .header__btn-menu--closed {
   background-position: -274px 13px;
   background-size: 428px;
 }
 
 @media only screen and (min-width: 992px) {
-  /* line 172, ../sass/_uncompiled_to_import.scss */
+  /* line 173, ../sass/_uncompiled_to_import.scss */
   .header__btn-menu {
     display: none;
   }
 }
 /* List of hamburger options */
-/* line 177, ../sass/_uncompiled_to_import.scss */
+/* line 178, ../sass/_uncompiled_to_import.scss */
 .header__list {
   display: none;
   position: absolute;
@@ -1660,7 +1699,7 @@ area {
   background-color: transparent;
 }
 
-/* line 186, ../sass/_uncompiled_to_import.scss */
+/* line 187, ../sass/_uncompiled_to_import.scss */
 .header__list li {
   list-style: none;
   text-align: center;
@@ -1669,20 +1708,20 @@ area {
 }
 
 @media only screen and (min-width: 992px) {
-  /* line 193, ../sass/_uncompiled_to_import.scss */
+  /* line 194, ../sass/_uncompiled_to_import.scss */
   .header__list {
     display: inline;
     position: static;
   }
 
-  /* line 197, ../sass/_uncompiled_to_import.scss */
+  /* line 198, ../sass/_uncompiled_to_import.scss */
   .header__list li {
     display: inline-block;
     padding: 0 5px 8px;
     border: none;
   }
 }
-/* line 209, ../sass/_uncompiled_to_import.scss */
+/* line 210, ../sass/_uncompiled_to_import.scss */
 .signin-widget {
   border: 1px solid white;
   font-size: 18px;
@@ -1692,81 +1731,81 @@ area {
   border-radius: 4px;
 }
 
-/* line 219, ../sass/_uncompiled_to_import.scss */
+/* line 220, ../sass/_uncompiled_to_import.scss */
 .signin-widget a {
   display: block;
   padding: 13px;
 }
 
-/* line 223, ../sass/_uncompiled_to_import.scss */
+/* line 224, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top {
   border-bottom: 1px solid white;
 }
-/* line 226, ../sass/_uncompiled_to_import.scss */
+/* line 227, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top > a {
   white-space: pre-wrap;
 }
-/* line 228, ../sass/_uncompiled_to_import.scss */
+/* line 229, ../sass/_uncompiled_to_import.scss */
 .signin-widget__top > a:hover {
   background-color: #eee;
 }
 
-/* line 233, ../sass/_uncompiled_to_import.scss */
+/* line 234, ../sass/_uncompiled_to_import.scss */
 .signin-widget__bot > a {
   white-space: pre-wrap;
 }
-/* line 235, ../sass/_uncompiled_to_import.scss */
+/* line 236, ../sass/_uncompiled_to_import.scss */
 .signin-widget__bot > a:hover {
   background-color: #eee;
 }
 
-/* line 245, ../sass/_uncompiled_to_import.scss */
+/* line 246, ../sass/_uncompiled_to_import.scss */
 .header__nav {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-/* line 253, ../sass/_uncompiled_to_import.scss */
+/* line 254, ../sass/_uncompiled_to_import.scss */
 .header__nav .nav-tabs {
   margin-left: 17%;
 }
 
-/* line 261, ../sass/_uncompiled_to_import.scss */
+/* line 262, ../sass/_uncompiled_to_import.scss */
 .nav li {
   display: inline-block;
 }
 
-/* line 266, ../sass/_uncompiled_to_import.scss */
+/* line 267, ../sass/_uncompiled_to_import.scss */
 .nav-tabs {
   border-bottom: none;
 }
 
-/* line 269, ../sass/_uncompiled_to_import.scss */
+/* line 270, ../sass/_uncompiled_to_import.scss */
 .nav > li {
   position: static;
   float: none;
 }
 
-/* line 274, ../sass/_uncompiled_to_import.scss */
+/* line 275, ../sass/_uncompiled_to_import.scss */
 .dropdown-menu {
   top: auto;
 }
 
-/* line 277, ../sass/_uncompiled_to_import.scss */
+/* line 278, ../sass/_uncompiled_to_import.scss */
 ul.dropdown-menu.nav.nav-tabs {
   position: absolute;
   left: 0;
   width: 100%;
 }
 
-/* line 284, ../sass/_uncompiled_to_import.scss */
+/* line 285, ../sass/_uncompiled_to_import.scss */
 .tabs {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 }
 
-/* line 289, ../sass/_uncompiled_to_import.scss */
+/* line 290, ../sass/_uncompiled_to_import.scss */
 .tabs > li {
   position: relative;
   display: block;
@@ -1774,7 +1813,7 @@ ul.dropdown-menu.nav.nav-tabs {
   margin-bottom: -1px;
 }
 
-/* line 295, ../sass/_uncompiled_to_import.scss */
+/* line 296, ../sass/_uncompiled_to_import.scss */
 .nav-tabs--lvl2 {
   margin-left: 0%;
   font-family: Roboto, courier;
@@ -1785,7 +1824,7 @@ ul.dropdown-menu.nav.nav-tabs {
 }
 
 /**/
-/* line 307, ../sass/_uncompiled_to_import.scss */
+/* line 308, ../sass/_uncompiled_to_import.scss */
 .dropdown-menu.nav-tabs {
   /* top: auto;
    left: 0;
@@ -1793,37 +1832,37 @@ ul.dropdown-menu.nav.nav-tabs {
    width: 100vw;*/
 }
 
-/* line 320, ../sass/_uncompiled_to_import.scss */
+/* line 321, ../sass/_uncompiled_to_import.scss */
 .a, .b, .c {
   padding: 0 15px;
 }
 
-/* line 324, ../sass/_uncompiled_to_import.scss */
+/* line 325, ../sass/_uncompiled_to_import.scss */
 .b {
   order: 10;
 }
 
-/* line 325, ../sass/_uncompiled_to_import.scss */
+/* line 326, ../sass/_uncompiled_to_import.scss */
 .c {
   justify-content: space-between;
 }
 
-/* line 336, ../sass/_uncompiled_to_import.scss */
+/* line 337, ../sass/_uncompiled_to_import.scss */
 .Acol-md-2 {
   flex-basis: 16.66666667%;
 }
 
-/* line 339, ../sass/_uncompiled_to_import.scss */
+/* line 340, ../sass/_uncompiled_to_import.scss */
 .Acol-md-3 {
   flex-basis: 24%;
 }
 
-/* line 342, ../sass/_uncompiled_to_import.scss */
+/* line 343, ../sass/_uncompiled_to_import.scss */
 .Acol-md-7 {
   flex-basis: 58.33333333%;
 }
 
-/* line 353, ../sass/_uncompiled_to_import.scss */
+/* line 354, ../sass/_uncompiled_to_import.scss */
 .breadcrumbs {
   min-height: 75px;
   font-family: Roboto, courier;
@@ -1831,21 +1870,21 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 16px;
   line-height: 75px;
 }
-/* line 361, ../sass/_uncompiled_to_import.scss */
+/* line 362, ../sass/_uncompiled_to_import.scss */
 .breadcrumbs a:after {
   content: "";
 }
 
 /*Central Part*/
 /* separated*/
-/* line 373, ../sass/_uncompiled_to_import.scss */
+/* line 374, ../sass/_uncompiled_to_import.scss */
 .screen1 {
   min-height: 707px;
   background-image: url(../img/scr1bg.png);
   background-repeat: no-repeat;
   background-position: calc(50% - 5px) top;
 }
-/* line 382, ../sass/_uncompiled_to_import.scss */
+/* line 383, ../sass/_uncompiled_to_import.scss */
 .screen1 .h2 {
   margin-left: 15px;
   margin-top: 48px;
@@ -1854,14 +1893,14 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 55.86px;
   text-transform: uppercase;
 }
-/* line 392, ../sass/_uncompiled_to_import.scss */
+/* line 393, ../sass/_uncompiled_to_import.scss */
 .screen1 .p1 {
   margin-left: 20px;
   margin-bottom: 25px;
   width: 393px;
   font-size: 16px;
 }
-/* line 400, ../sass/_uncompiled_to_import.scss */
+/* line 401, ../sass/_uncompiled_to_import.scss */
 .screen1 .span1 {
   display: inline-block;
   box-sizing: border-box;
@@ -1875,7 +1914,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 419, ../sass/_uncompiled_to_import.scss */
+/* line 420, ../sass/_uncompiled_to_import.scss */
 .screen1 .imgmap {
   /* spare background. But if file doesn't exist, it won't help.*/
   height: 69px;
@@ -1886,7 +1925,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 429, ../sass/_uncompiled_to_import.scss */
+/* line 430, ../sass/_uncompiled_to_import.scss */
 .screen1 .imgmap__text {
   top: 0;
   left: 0;
@@ -1894,7 +1933,7 @@ ul.dropdown-menu.nav.nav-tabs {
   font-size: 18.37px;
   text-transform: uppercase;
 }
-/* line 442, ../sass/_uncompiled_to_import.scss */
+/* line 443, ../sass/_uncompiled_to_import.scss */
 .screen1 .logo2 {
   display: inline-block;
   min-width: 30%;
@@ -1902,7 +1941,7 @@ ul.dropdown-menu.nav.nav-tabs {
   /* if inside is posabs*/
   text-align: center;
 }
-/* line 450, ../sass/_uncompiled_to_import.scss */
+/* line 451, ../sass/_uncompiled_to_import.scss */
 .screen1 .logo2__link {
   width: 174px;
   /*bg*/
@@ -1914,7 +1953,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-position: center center;
 }
 
-/* line 464, ../sass/_uncompiled_to_import.scss */
+/* line 465, ../sass/_uncompiled_to_import.scss */
 .screen2 {
   min-height: 625px;
   background-image: url(../img/scr2bg.jpg);
@@ -1922,12 +1961,12 @@ ul.dropdown-menu.nav.nav-tabs {
   background-position: calc(50% - 5px) top;
   background-size: cover;
 }
-/* line 473, ../sass/_uncompiled_to_import.scss */
+/* line 474, ../sass/_uncompiled_to_import.scss */
 .screen2 .containerow, .screen2 .containerow2 {
   position: relative;
   /* for signup*/
 }
-/* line 477, ../sass/_uncompiled_to_import.scss */
+/* line 478, ../sass/_uncompiled_to_import.scss */
 .screen2 h2 {
   margin-left: auto;
   box-sizing: border-box;
@@ -1943,7 +1982,7 @@ ul.dropdown-menu.nav.nav-tabs {
   text-shadow: 3px 3px #594aaf;
   color: rgba(255, 255, 255, 0.5);
 }
-/* line 497, ../sass/_uncompiled_to_import.scss */
+/* line 498, ../sass/_uncompiled_to_import.scss */
 .screen2 span {
   display: block;
   /* removes lh*/
@@ -1951,14 +1990,14 @@ ul.dropdown-menu.nav.nav-tabs {
   line-height: 1;
   /* doesn't decrease*/
 }
-/* line 507, ../sass/_uncompiled_to_import.scss */
+/* line 508, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 {
   float: right;
   margin-right: 35px;
   width: 300px;
   text-align: right;
 }
-/* line 518, ../sass/_uncompiled_to_import.scss */
+/* line 519, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 .button {
   display: inline-block;
   width: 293px;
@@ -1967,7 +2006,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn2.png);
   background-repeat: no-repeat;
 }
-/* line 526, ../sass/_uncompiled_to_import.scss */
+/* line 527, ../sass/_uncompiled_to_import.scss */
 .screen2 .posabs1 p {
   display: inline-block;
   width: 233px;
@@ -1976,7 +2015,7 @@ ul.dropdown-menu.nav.nav-tabs {
   text-align: right;
   color: #594aaf;
 }
-/* line 539, ../sass/_uncompiled_to_import.scss */
+/* line 540, ../sass/_uncompiled_to_import.scss */
 .screen2 .imgmap {
   /* spare background. But if file doesn't exist, it won't help.*/
   height: 69px;
@@ -1987,7 +2026,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-image: url(../img/btn1.png);
   background-repeat: no-repeat;
 }
-/* line 549, ../sass/_uncompiled_to_import.scss */
+/* line 550, ../sass/_uncompiled_to_import.scss */
 .screen2 .imgmap__text {
   top: 0;
   right: 0;
@@ -1996,11 +2035,11 @@ ul.dropdown-menu.nav.nav-tabs {
   text-transform: uppercase;
 }
 
-/* line 563, ../sass/_uncompiled_to_import.scss */
+/* line 564, ../sass/_uncompiled_to_import.scss */
 .screen3 {
   min-height: 644px;
 }
-/* line 566, ../sass/_uncompiled_to_import.scss */
+/* line 567, ../sass/_uncompiled_to_import.scss */
 .screen3 h2 {
   width: 50%;
   margin-left: 30px;
@@ -2010,19 +2049,19 @@ ul.dropdown-menu.nav.nav-tabs {
   text-transform: uppercase;
   color: #fff;
 }
-/* line 579, ../sass/_uncompiled_to_import.scss */
+/* line 580, ../sass/_uncompiled_to_import.scss */
 .screen3 .icons {
   margin-top: 219px;
 }
 
-/* line 585, ../sass/_uncompiled_to_import.scss */
+/* line 586, ../sass/_uncompiled_to_import.scss */
 .screen4 {
   min-height: 691px;
   background-image: url(../img/scr4bg.jpg);
   background-repeat: no-repeat;
   background-position: calc(50% - 5px) top;
 }
-/* line 593, ../sass/_uncompiled_to_import.scss */
+/* line 594, ../sass/_uncompiled_to_import.scss */
 .screen4 h2 {
   float: right;
   width: 420px;
@@ -2036,7 +2075,7 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #c69c6d;
   text-shadow: -3px -3px #594aaf;
 }
-/* line 610, ../sass/_uncompiled_to_import.scss */
+/* line 611, ../sass/_uncompiled_to_import.scss */
 .screen4 .else {
   padding: 5px 0;
   font-size: 28.91px;
@@ -2044,14 +2083,14 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #594aaf;
 }
 
-/* line 620, ../sass/_uncompiled_to_import.scss */
+/* line 621, ../sass/_uncompiled_to_import.scss */
 .screen5 {
   position: relative;
   /*for layer*/
   min-height: 618px;
   border-top: rgba(104, 62, 14, 0.2);
 }
-/* line 625, ../sass/_uncompiled_to_import.scss */
+/* line 626, ../sass/_uncompiled_to_import.scss */
 .screen5 .h2 {
   height: 106px;
   padding-left: 32px;
@@ -2060,13 +2099,13 @@ ul.dropdown-menu.nav.nav-tabs {
   line-height: 106px;
   color: #fff;
 }
-/* line 636, ../sass/_uncompiled_to_import.scss */
+/* line 637, ../sass/_uncompiled_to_import.scss */
 .screen5 .containerow, .screen5 .containerow2 {
   position: relative;
   /* for floating lay*/
   z-index: 500;
 }
-/* line 640, ../sass/_uncompiled_to_import.scss */
+/* line 641, ../sass/_uncompiled_to_import.scss */
 .screen5 .floating-layer {
   position: absolute;
   top: 32px;
@@ -2074,12 +2113,12 @@ ul.dropdown-menu.nav.nav-tabs {
   width: 392px;
   height: 100%;
 }
-/* line 647, ../sass/_uncompiled_to_import.scss */
+/* line 648, ../sass/_uncompiled_to_import.scss */
 .screen5 .bshad {
   box-shadow: 11px 11px 0 0 #594aaf;
   margin-bottom: 24px;
 }
-/* line 651, ../sass/_uncompiled_to_import.scss */
+/* line 652, ../sass/_uncompiled_to_import.scss */
 .screen5 .stick {
   position: absolute;
   top: -31px;
@@ -2089,12 +2128,12 @@ ul.dropdown-menu.nav.nav-tabs {
   width: 4px;
   background-color: #594aaf;
 }
-/* line 660, ../sass/_uncompiled_to_import.scss */
+/* line 661, ../sass/_uncompiled_to_import.scss */
 .screen5 input {
   border: none;
   margin-bottom: 11px;
 }
-/* line 664, ../sass/_uncompiled_to_import.scss */
+/* line 665, ../sass/_uncompiled_to_import.scss */
 .screen5 input[type="text"] {
   display: block;
   box-sizing: border-box;
@@ -2106,7 +2145,7 @@ ul.dropdown-menu.nav.nav-tabs {
   color: #666;
   background-color: #e6e6e6;
 }
-/* line 678, ../sass/_uncompiled_to_import.scss */
+/* line 679, ../sass/_uncompiled_to_import.scss */
 .screen5 .submit {
   display: block;
   width: 239px;
@@ -2121,7 +2160,7 @@ ul.dropdown-menu.nav.nav-tabs {
   background-repeat: no-repeat;
 }
 
-/* line 701, ../sass/_uncompiled_to_import.scss */
+/* line 702, ../sass/_uncompiled_to_import.scss */
 .map {
   width: 100%;
   margin: 0 auto;
@@ -2131,25 +2170,25 @@ ul.dropdown-menu.nav.nav-tabs {
   text-align: center;
 }
 
-/* line 713, ../sass/_uncompiled_to_import.scss */
+/* line 714, ../sass/_uncompiled_to_import.scss */
 footer {
   height: 142px;
   /*d*/
   padding-top: 16px;
 }
 
-/* line 717, ../sass/_uncompiled_to_import.scss */
+/* line 718, ../sass/_uncompiled_to_import.scss */
 .mails {
   text-align: right;
   line-height: 1.5;
 }
 
-/* line 726, ../sass/_uncompiled_to_import.scss */
+/* line 727, ../sass/_uncompiled_to_import.scss */
 .svg-icons div {
   height: 50px;
 }
 
-/* line 730, ../sass/_uncompiled_to_import.scss */
+/* line 731, ../sass/_uncompiled_to_import.scss */
 svg.svg-class {
   /*height: 40px;
   width: 50px;

@@ -146,7 +146,8 @@ area {
 .wrapper {
     min-height: 3431px;//d
     
-    background-color: $BLACK;
+    overflow: auto; /* to not get out of range*/
+    //background-color: $BLACK;
     background-image: url(../img/bg.jpg);
     background-repeat: repeat-x;
 }

@@ -40,13 +40,14 @@
 
 $black_padding: 22px;
 .navi__item {
+    @extend .navi__item--inclusive;
     
     
     position: relative;
     display: inline-block;
     height: 100%; /* for link*/
     //min-width: 17.5%;//тогда суммарно 100% или больше(по размеру контентов).
-    min-width: 6em; /*appx 6 letters*/
+    min-width: 3em; /*appx 3 letters*/
     width: 17.5%;
     
     vertical-align: top;
@@ -80,20 +81,9 @@ $black_padding: 22px;
         top: calc(100% + #{$black_padding} + 20px - 12px);
         left: calc(50% - 7px);
         
-        border-bottom: 12px red solid;
+        border-bottom: 12px $VIOLET solid;
         border-left: 7px solid transparent;
         border-right: 7px solid transparent;
-    }
-    
-    &:hover:before, &.active:before {
-        display: block;    
-    }
-    /*&:hover   .navi--lvl2, &.active   .navi--lvl2 {
-        display: block;
-    }//delete*/
-    &:hover   .navi__subthing, //все под-под-...-меню
-&.active   .navi__subthing {
-        display: block;
     }
     
     //окрас
@@ -130,11 +120,12 @@ $black_padding: 22px;
 
 
 .navi__subthing {
+    @extend .navi__subthing--bdt;
     position: absolute;
     left: -62px;
     top: 100%;  //calc(100% + 21px);
-    border-top: $black_padding+20px solid transparent;
 }
+
 
 
 
@@ -171,7 +162,6 @@ $black_padding: 22px;
 
 
 
-
 .ham{
     display: inline-block;
     vertical-align: top;
@@ -179,9 +169,13 @@ $black_padding: 22px;
 }
 .ham__link {
     display: inline-block; /* for pd top*/
-    padding: 29px 25px;
     box-sizing: border-box;
     height: 100%;
+    padding: 29px 25px;
+    
+    &::before {
+        content: "☰";
+    }
 }
 .ham__label{
     
@@ -193,19 +187,28 @@ $black_padding: 22px;
 #ham__check1{
     display:none;
 }
+.ham--added {
+    display: none;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+}
 
 
 
 
-
-$not-fitting-in-less-than: 768px;
+//$not-fitting-in-less-than: 768px;
+$not-fitting-in-less-than: 600px; //до 600 - это 360, но не 640 :)
+//
+//
+//
 @media only screen and (max-width : $not-fitting-in-less-than) {
     
-//дублировал для @медиа.КОСЯК. 
-.navi__item--block-copy {
-    width: auto;
-    border-bottom: 1px solid; //цвет шрифта
-}
+    //дублировал для @медиа.КОСЯК. 
+    .navi__item--block-copy {
+        width: auto;
+        border-bottom: 1px solid; //цвет шрифта
+    }
     
     
     .navi__item {
@@ -221,14 +224,14 @@ $not-fitting-in-less-than: 768px;
     //По идее ham__check должен быть виден и с галочкой только в моб версии, так что можно все это засунуть в @media, чтобы точно не работало в остальных "директивах".
     #ham__check1{
         display:none;
-        &:checked + .navi{
+        &:checked ~ * .navi{
 
             .navi__item {
                 display: block;
                 @extend .navi__item--block-copy;
 
 
-                background-color: blueviolet;
+                background-color: rgb(35, 25, 58);
             }
             .navi__item:first-child {
                 text-align: inherit;
@@ -239,7 +242,25 @@ $not-fitting-in-less-than: 768px;
             .logo2 {
                 display:none;
             }
+            .ham--added {
+                display: inline-block;
+            }
 
+        }
+        //
+        &:checked + .wrapper {
+            position: relative; /*for :before-height%*/
+            &:before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: rgba(26, 11, 40, 0.72);
+                background-image: url(../img/pattern.png);
+                background-repeat: repeat;
+                z-index: 1000; /* less than dropdown menu*/
+            }
         }
     }
     
@@ -247,7 +268,9 @@ $not-fitting-in-less-than: 768px;
 }
 
 
-/*min*/
+/*
+ *min
+*/
 @media only screen and (min-width : $not-fitting-in-less-than) {
     //----------------так нельзя
     //.navi{
@@ -256,6 +279,32 @@ $not-fitting-in-less-than: 768px;
     //--------------------------
     .ham{
         display: none;
+    }
+    
+    
+    // Решил , что можно сбросить в эту медию всё, что добавляет ховер-поведение, Ведь в противоположной медии этого поведения быть не должно вообще. Старался оставить вне медий только общие для ВСЕХ медий.
+    .navi__subthing{
+        @extend .navi__subthing--bdt;
+    }
+    
+    .navi__item {
+        @extend .navi__item--inclusive;
+    }
+    
+    .navi__subthing--bdt {
+        border-top: $black_padding+20px solid transparent;
+    }
+
+    .navi__item--inclusive { //включающий скрываемое по hover-поведению
+        
+        //стрелочка-маркер:
+        &:hover:before, &.active:before {
+            display: block;    
+        }
+        &:hover   .navi__subthing, //все под-под-...-меню
+    &.active   .navi__subthing {
+            display: block;
+        }
     }
     //Прваильно было бы отображать/скрывать anti-hover меню не от размера экрана, а от сенсорности дисплея.
 }
