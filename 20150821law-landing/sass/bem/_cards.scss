@@ -187,27 +187,42 @@ $flat-card-padding: 27px;
     display: none;
 }
 
+$SLOW: 1.2s;
+$QUICK: .2s;
 .cat__item--lvl1 {
+    
+    transition: padding $QUICK ease-in-out 0s , margin $SLOW ease-in-out .0s;
+    &:hover {
+        transition: padding $QUICK ease-in-out 0s , margin $QUICK ease-in-out .0s;
+    }
     
     //лень бэм классы ставить.
     >.cat__link {
         position: relative; /* for :before*/
         padding: 8px 0 7px;
         z-index: 0; /* for z-context being this li*/
+        transition: background $SLOW ease-in-out .0s;
     }
-    >.cat__link:hover,
-    &.cat__item--active>.cat__link {
+    //active>SOME ~== SOME:hover
+    >.cat__link:hover
+    ,&.cat__item--active>.cat__link {
         background-color: $catHoverReal;
+        
+        transition: background $QUICK ease-in-out .0s;
     }
-    >.cat__link:hover::before,
-    &.cat__item--active>.cat__link::before {
+    >.cat__link:hover::before
+    ,>.cat__link:hover::after
+    ,&.cat__item--active>.cat__link::before
+    ,&.cat__item--active>.cat__link::after{
         visibility: visible;
         opacity: 1;
+        
+        transition: opacity $QUICK ease-in-out .0s, visibility $QUICK ease-in-out .0s;
     }
     >.cat__link::before {
         content: '';
         position: absolute;
-        top: -43px;
+        top: -43px;    /*h of circle*/
         left: -148px;
         display: block;
         width: 376px;
@@ -217,9 +232,25 @@ $flat-card-padding: 27px;
         opacity: 0;
         z-index: -1;
         pointer-events: none;
-        background-image: url(../img/base-shape.png);
+        /*background-image: url(../img/base-shape.png);*/
         background-repeat: no-repeat;
-        transition: opacity .2s ease-in-out .0s, visibility .2s ease-in-out .0s;
+        transition: opacity $SLOW ease-in-out .0s, visibility $SLOW ease-in-out .0s;
+    }
+    >.cat__link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: -30px;
+        display: block;
+        
+        /*triangle*/
+        border-left: 30px solid #D59D6B;
+        border-top: 19px transparent solid;
+        border-bottom: 17px transparent solid;
+        
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity $SLOW ease-in-out .0s, visibility $SLOW ease-in-out .0s;
     }
 }
 
@@ -241,7 +272,7 @@ $flat-card-padding: 27px;
 
 .cat * {
     
-    transition: padding .2s ease-in-out 0s;
+    /*transition: padding $QUICK ease-in-out 0s , margin $SLOW ease-in-out .0s;*/
 }
 
 

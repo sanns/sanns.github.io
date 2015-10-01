@@ -145,8 +145,9 @@ area {
 /* MOCK-UP start*/
 .wrapper {
     min-height: 3431px;//d
+    min-width: $min-width;
     
-    overflow: auto; /* to not get out of range*/
+    overflow: hidden; /* to not get out of range*/
     //background-color: $BLACK;
     background-image: url(../img/bg.jpg);
     background-repeat: repeat-x;
@@ -368,6 +369,38 @@ $bread-h: 75px;
 
 
 
+.cd-nav-trigger {
+    float: right;
+    position: relative;
+    display: block;
+    width: 34px;
+    height: 44px;
+    margin-right: 5%;
+    overflow: hidden;
+    white-space: nowrap;
+    color: transparent;
+}
+.cd-nav-trigger.nav-is-visible span {
+    background: rgba(255, 255, 255, 0);
+}
+.cd-nav-trigger span {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    margin-top: -2px;
+    transition: background 0.2s;
+}
+.cd-nav-trigger span, .cd-nav-trigger span::before, .cd-nav-trigger span::after {
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    width: 24px;
+    background: #ffffff;
+}
+
+
+
+
 /*Central Part*/
 /* separated*/
 
@@ -384,7 +417,7 @@ $bread-h: 75px;
         margin-left: 15px;
         margin-top: 48px;
         margin-bottom: 39px;
-        width: 444px;
+        max-width: 444px;
             
         @extend %ProximaNB;
         font-size: 55.86px;
@@ -393,12 +426,12 @@ $bread-h: 75px;
     .p1 {
         margin-left: 20px;
         margin-bottom: 25px;
-        width: 393px;
+        max-width: 393px;
         
         @extend %ProximaL;
         font-size: 16px;
     }
-    .span1 {
+    /*.span1 {
         display: inline-block;
         box-sizing: border-box;
         height: 69px;
@@ -415,24 +448,30 @@ $bread-h: 75px;
         //background-color: #5e36b1;
         background-image: url(../img/btn1.png);
         background-repeat: no-repeat;
-    }
+    }*/
     
     .imgmap{
         /* spare background. But if file doesn't exist, it won't help.*/
-        height: 69px; /* bg*/
-        width: 444px;
+        min-height: 69px; /* bg*/
+        max-width: 444px; /* bg*/
         margin-left: 19px;
         margin-top: 36px;
         
         background-image: url(../img/btn1.png);
         background-repeat: no-repeat;
+    background-size: 100% 100%;
     }
     .imgmap__text {
+        position: absolute;
         top: 0;
         left: 0;
-        
+        height: 100%; /* for pos abs*/
+        box-sizing: border-box;
         padding: 24px;
         //padding-right: 43px;
+        padding-bottom: 0; /* text go infinite down*/
+        
+        
         
         @extend %ProximaNB;
         font-size: 18.37px;
@@ -469,7 +508,7 @@ $bread-h: 75px;
     background-repeat: no-repeat;
     background-position: calc(50% - 5px) top;
     //background-position: -9px top;
-    background-size: cover;
+    background-size: cover; /*when wrapping text height is increasing. Need bg to cover it. But image will not be stable. */
     
     .containerow {
         position: relative; /* for signup*/
@@ -480,11 +519,10 @@ $bread-h: 75px;
         margin-left: auto;
         
         box-sizing: border-box;
-        width: 420px;
-        max-height: 147px;
+        max-width: 420px;
         padding-bottom: 50px;
         padding-top: 23px;
-        margin-right: 35px;
+        margin-right: 4.3478260869565217391304347826087%;    //35px
         
         @extend %ProximaNL;
         font-size: 55.86px;
@@ -507,7 +545,9 @@ $bread-h: 75px;
     
     .posabs1 {
         float: right;
-        margin-right: 35px;
+        /* float: right - сразу mgb */
+        margin-bottom: 5px;
+        margin-right: 4.3478260869565217391304347826087%;    //35px
         //position: absolute;
         //top: 148px;
         //right: 35px;
@@ -548,9 +588,9 @@ $bread-h: 75px;
         background-repeat: no-repeat;
     }
     .imgmap__text {
+        position: absolute;
         top: 0;
         right: 0;
-        
         padding: 20px 35px;
         
         @extend %ProximaNB;

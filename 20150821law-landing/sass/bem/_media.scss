@@ -14,8 +14,6 @@
     border-right: transparent 74px solid;
     //border-left: solid 20px rgba( 0,0,0, 0.5);
     width: 432px;
-    
-    mix-blend-mode: multiply;
 }
 //503px
 
@@ -77,3 +75,10 @@
 
 
 
+@media screen and (min-width: $max-mobile) {
+    
+    .media__pattern {
+        mix-blend-mode: multiply;
+    }
+    
+}

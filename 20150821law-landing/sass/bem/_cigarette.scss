@@ -11,6 +11,10 @@ $w: 226px + 85px;
     margin-top: 11px;
     
     color: #fff;
+    
+    &:after {
+        @extend .afterclear;
+    }
 }
 
 
@@ -48,4 +52,11 @@ $w: 226px + 85px;
     
     background-color: $BRONZE;
     background-color: transparentize(#c69c6d, .1);
+}
+
+
+@media only screen and (max-width: $w*2 ) {
+    .cigarette{
+        margin-bottom: 50px + 5px ;
+    }
 }
