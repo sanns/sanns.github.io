@@ -1,0 +1,43 @@
+@import "compass";
+@import "_vars";
+
+//двухколоночный макет
+.main {
+    box-sizing: border-box;
+    //min-height: 1450px;//
+    //max-height: 1050px;//
+    overflow: hidden;
+    border-bottom: 40px solid transparent;
+    padding-top: 39px;
+    
+    background-color: #fdfdfd;
+}
+.main__right {
+    float: right;
+    width: 26.530612244897959183673469387755%;
+}
+.main__left {
+    float: left;
+    width: 67.346938775510204081632653061224%;
+}
+
+
+
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    
+    .main__right {
+        float: none;
+        width: auto;
+        
+        text-align: center; 
+    }
+    .main__left {
+        float: none;
+        width: auto;
+    }
+    
+}

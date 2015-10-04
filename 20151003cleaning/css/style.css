@@ -1,0 +1,804 @@
+@charset "UTF-8";
+/* line 5, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby22/lib/ruby/gems/2.2.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* for header nav to not wrap inside*/
+/* line 67, ../sass/_vars.scss */
+.wrapper, .navg, .contacts, .text-muted, .welcome_text, .screen2 h2, .brands h2, .round {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 100;
+}
+
+/* line 71, ../sass/_vars.scss */
+.logo, .navg__item, .bold, .pink, .services, .screen2 .private__item, .label1 {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+
+/*slider*/
+/* line 8, ../sass/bem/_slider.scss */
+.slider {
+  box-sizing: border-box;
+}
+
+/* line 24, ../sass/bem/_slider.scss */
+.slider__slide {
+  overflow: hidden;
+  /*╤Б╨╛╨┤╨╡╤А╨╢╨╕╨╝╨╛╨╡ ╨╖╨░╨╗╨░╨╖╨╕╤В ╨╜╨░ ╤Б╨╛╤Б╨╡╨┤╨╜╨╕╨╣ ╤Б╨╗╨░╨╣╨┤ */
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  /* align-content: center; */
+  align-items: center;
+  margin: 0 auto;
+  height: 760px;
+  /* remove space under images*/
+  font-size: 0px;
+  line-height: 0px;
+  /*text-align: center; /*╨║╨╛╨│╨┤╨░ ╨║╨░╤А╤В╨╕╨╜╨║╨░ ╨╜╨╡ ╨▓╨╗╨░╨╖╨╕╤В, ╨╛╨╜╨░ ╨▒╤Г╨┤╨╡╤В ╤А╨░╤Б╨┐╨╛╨╗╨░╨│╨░╤В╤М╤Б╤П ╨┐╨╛ ╨╗╨╡╨▓╨╛╨╝╤Г ╨║╤А╨░╤О. ╨ж╨╡╨╜╤В╤А╨╕╤А╨╛╨▓╨░╤В╤М╤Б╤П - ╤В╨╛╨╗╤М╨║╨╛ ╨║╨╛╨│╨┤╨░ ╤И╨╕╤А╨╛╨║╨░╤П ╨╛╨▒╨╗╨░╤Б╤В╤М.*/
+}
+
+/* line 43, ../sass/bem/_slider.scss */
+.inline-block-wrapper {
+  /* ╤Б╨┤╨╡╨╗╨░╨╡╤В ╤Б╨▓╨╛╤О ╤И╨╕╤А╨╕╨╜╤Г ╨┐╨╛ ╤И╨╕╤А╨╛╤З╨░╨╣╤И╨╡╨╝╤Г ╨║╨╛╨╜╤В╨╡╨╜╤В╤Г*/
+  position: relative;
+  /*╨┤╨╗╤П ╨╜╨░╨┤╨┐╨╕╤Б╨╕ ╨╜╨░ ╤Б╨╗╨░╨╣╨┤╨╡*/
+  /*position:relative;/* ╨▒╤Л╨╗╨╛ ╨┤╨╗╤П ╨╜╨░╨┤╨┐╨╕╤Б╨╕ ╨╜╨░ ╤Б╨╗╨░╨╣╨┤╨╡*/
+}
+
+/* line 49, ../sass/bem/_slider.scss */
+.slider__slide img {
+  max-height: 100%;
+  max-width: 100%;
+  max-width: none;
+  /*height: auto;
+  max-height: 400px;*/
+  /*╨║╨░╨║ ╨▓╨░╤А╨╕╨░╨╜╤В ╨╕╨╖ jcarusel*/
+}
+
+/* line 61, ../sass/bem/_slider.scss */
+.slider__text {
+  position: absolute;
+  top: 178px;
+  left: 0;
+  width: 100%;
+  /* not to be content width */
+  font-family: "PT Serif", courier;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 24px;
+  color: white;
+}
+/* line 66, ../sass/bem/_slider.scss */
+.slider__text h2 {
+  margin-bottom: 34px;
+  font-family: Roboto, courier;
+  font-size: 48px;
+  font-weight: 100;
+}
+/* line 68, ../sass/bem/_slider.scss */
+.slider__text h2 span {
+  border-bottom: 1px solid white;
+}
+/* line 75, ../sass/bem/_slider.scss */
+.slider__text h2 b {
+  text-transform: uppercase;
+}
+
+/* slider 2:*/
+/* line 101, ../sass/bem/_slider.scss */
+.slider--small .slider__slide {
+  height: 155px;
+}
+
+/* line 104, ../sass/bem/_slider.scss */
+.text-muted {
+  margin-top: 15px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* bootstrap! ╨▒╨╗╨░╨│╨╛╨┤╨░╤А╤П ╤В╨╛╨╝╤Г, ╤З╤В╨╛ ╨▓ ╨▒╤Г╤В╤Б╤В╤А╨░╨┐╨╡ ╨║╨╛╨╗╨╛╨╜╨║╨╕ ╨╖╨░╨┤╨░╨╜╤Л ╨▓ %, ╨╝╨╛╨╢╨╜╨╛ ╨┐╨╛╨┐╤Л╤В╨░╤В╤М╤Б╤П ╨┐╨╛╨┤╨┐╤А╨░╨▓╨╕╤В╤М ╤И╨╕╤А╨╕╨╜╤Г ╨║╨╛╨╜╤В╨╡╨╣╨╜╨╡╤А╨░*/
+@media (min-width: 1200px) {
+  /* line 8, ../sass/_uncompiled_to_import.scss */
+  .container {
+    width: 1200px;
+  }
+}
+/* kinda reset */
+/* line 15, ../sass/_uncompiled_to_import.scss */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 19, ../sass/_uncompiled_to_import.scss */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 23, ../sass/_uncompiled_to_import.scss */
+a:focus, a:hover, a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* line 27, ../sass/_uncompiled_to_import.scss */
+body {
+  font-family: courier;
+  background-color: #cfd8dc;
+  color: #fff;
+}
+
+/* line 33, ../sass/_uncompiled_to_import.scss */
+body.when-scrolling {
+  pointer-events: none;
+}
+
+/* line 36, ../sass/_uncompiled_to_import.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 39, ../sass/_uncompiled_to_import.scss */
+input:focus {
+  outline: none;
+}
+
+/* line 42, ../sass/_uncompiled_to_import.scss */
+input {
+  /*default 320*32 ~ font-size*/
+  width: 100%;
+  /* can also be a problem*/
+  /*box-sizing: border-box;*/
+  /* recommended*/
+}
+
+/* line 47, ../sass/_uncompiled_to_import.scss */
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* line 50, ../sass/_uncompiled_to_import.scss */
+area:focus {
+  outline: none;
+}
+
+/* line 53, ../sass/_uncompiled_to_import.scss */
+area {
+  outline: red 1px solid;
+}
+
+/* line 59, ../sass/_uncompiled_to_import.scss */
+* {
+  transition: width .5s ease-in-out;
+}
+
+/* helping classes*/
+/* line 65, ../sass/_uncompiled_to_import.scss */
+.fw-500 {
+  font-weight: 500;
+}
+
+/* line 68, ../sass/_uncompiled_to_import.scss */
+.posstat {
+  position: static;
+}
+
+/* line 71, ../sass/_uncompiled_to_import.scss */
+.posrel {
+  position: relative;
+}
+
+/* line 74, ../sass/_uncompiled_to_import.scss */
+.posabs {
+  position: absolute;
+}
+
+/* line 77, ../sass/_uncompiled_to_import.scss */
+.bot0 {
+  bottom: 0;
+}
+
+/* line 80, ../sass/_uncompiled_to_import.scss */
+.disflex {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/* line 84, ../sass/_uncompiled_to_import.scss */
+.disflexcol {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+/* line 88, ../sass/_uncompiled_to_import.scss */
+.hide {
+  display: none;
+}
+
+/* line 91, ../sass/_uncompiled_to_import.scss */
+.height {
+  height: 2000px;
+}
+
+/* line 94, ../sass/_uncompiled_to_import.scss */
+.clear {
+  clear: both;
+}
+
+/* line 109, ../sass/_uncompiled_to_import.scss */
+.afterclear, .logo:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* line 115, ../sass/_uncompiled_to_import.scss */
+.containerow, .containerow2 {
+  max-width: 805px;
+  margin: 0 auto;
+}
+/* line 119, ../sass/_uncompiled_to_import.scss */
+.containerow:before, .containerow2:before, .containerow:after, .containerow2:after {
+  content: '';
+  clear: both;
+  display: table;
+  /*display:none;*/
+}
+
+/* line 126, ../sass/_uncompiled_to_import.scss */
+.containerow2 {
+  max-width: 980px;
+  padding: 0;
+}
+
+/* ╨║╨░╨║ ╨┐╨╡╤А╨╡╨╜╨╛╤Б╨╕╤В╤М ╤Б╨╗╨╛╨▓╨░ ╨┐╨╛ ╨▒╤Г╨║╨▓╨░╨╝, ╨║╨╛╨│╨┤╨░ ╤Б╨╗╨╕╤И╨║╨╛╨╝ ╨┤╨╗╨╕╨╜╨╜╤Л╨╡?*/
+/* debug helping*/
+/* MOCK-UP start*/
+/* line 148, ../sass/_uncompiled_to_import.scss */
+.wrapper {
+  min-height: 2770px;
+  color: #696969;
+}
+
+/* hamburger */
+/* line 160, ../sass/_uncompiled_to_import.scss */
+.header__btn-menu {
+  float: right;
+  display: inline-block;
+  width: 60px;
+  height: 49px;
+  background-image: url(../img/sprt.svg);
+  background-size: 428px;
+  background-position: -65px -88px;
+  margin-right: 20px;
+}
+
+/* line 170, ../sass/_uncompiled_to_import.scss */
+.header__btn-menu--closed {
+  background-position: -274px 13px;
+  background-size: 428px;
+}
+
+@media only screen and (min-width: 992px) {
+  /* line 176, ../sass/_uncompiled_to_import.scss */
+  .header__btn-menu {
+    display: none;
+  }
+}
+/* List of hamburger options */
+/* line 181, ../sass/_uncompiled_to_import.scss */
+.header__list {
+  display: none;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* line 190, ../sass/_uncompiled_to_import.scss */
+.header__list li {
+  list-style: none;
+  text-align: center;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #485361;
+}
+
+@media only screen and (min-width: 992px) {
+  /* line 197, ../sass/_uncompiled_to_import.scss */
+  .header__list {
+    display: inline;
+    position: static;
+  }
+
+  /* line 201, ../sass/_uncompiled_to_import.scss */
+  .header__list li {
+    display: inline-block;
+    padding: 0 5px 8px;
+    border: none;
+  }
+}
+/* line 213, ../sass/_uncompiled_to_import.scss */
+.signin-widget {
+  border: 1px solid white;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+/* line 223, ../sass/_uncompiled_to_import.scss */
+.signin-widget a {
+  display: block;
+  padding: 13px;
+}
+
+/* line 227, ../sass/_uncompiled_to_import.scss */
+.signin-widget__top {
+  border-bottom: 1px solid white;
+}
+/* line 230, ../sass/_uncompiled_to_import.scss */
+.signin-widget__top > a {
+  white-space: pre-wrap;
+}
+/* line 232, ../sass/_uncompiled_to_import.scss */
+.signin-widget__top > a:hover {
+  background-color: #eee;
+}
+
+/* line 237, ../sass/_uncompiled_to_import.scss */
+.signin-widget__bot > a {
+  white-space: pre-wrap;
+}
+/* line 239, ../sass/_uncompiled_to_import.scss */
+.signin-widget__bot > a:hover {
+  background-color: #eee;
+}
+
+/* line 249, ../sass/_uncompiled_to_import.scss */
+.breadcrumbs {
+  min-height: 75px;
+  font-family: Roboto, courier;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 75px;
+}
+/* line 257, ../sass/_uncompiled_to_import.scss */
+.breadcrumbs a:after {
+  content: "";
+}
+
+/* 
+*
+*/
+/* line 269, ../sass/_uncompiled_to_import.scss */
+a:hover {
+  color: #e5457d;
+}
+
+/* header*/
+/* line 273, ../sass/_uncompiled_to_import.scss */
+.container.posrel {
+  height: 10px;
+  /*db*/
+  /*for adequate 100% width child*/
+  padding-left: 0;
+  padding-right: 0;
+  width: 1170px;
+}
+
+/* line 281, ../sass/_uncompiled_to_import.scss */
+.top-menu {
+  position: absolute;
+  top: 0;
+  width: calc(100% - 30px);
+  /* of posrel/container*/
+  z-index: 1;
+}
+
+/* line 287, ../sass/_uncompiled_to_import.scss */
+.logo {
+  display: block;
+  font-size: 30px;
+}
+
+/* line 296, ../sass/_uncompiled_to_import.scss */
+.logo__img {
+  float: left;
+}
+/* line 298, ../sass/_uncompiled_to_import.scss */
+.logo__img > svg {
+  stroke: red;
+}
+
+/* line 307, ../sass/_uncompiled_to_import.scss */
+.navg {
+  font-size: 20px;
+  color: #696969;
+}
+
+/* line 314, ../sass/_uncompiled_to_import.scss */
+.navg__item {
+  margin-right: 2.5%;
+  /* 15px*/
+  display: inline-block;
+}
+
+/* line 320, ../sass/_uncompiled_to_import.scss */
+.navg__item--active .navg__link {
+  border-bottom: 2px solid;
+}
+
+/* line 324, ../sass/_uncompiled_to_import.scss */
+.navg__item:hover .navg__link {
+  color: #e5457d;
+}
+
+/* line 331, ../sass/_uncompiled_to_import.scss */
+.welcome_text {
+  font-size: 30px;
+}
+
+/* line 339, ../sass/_uncompiled_to_import.scss */
+.pink {
+  color: #e5457d;
+}
+
+/* line 344, ../sass/_uncompiled_to_import.scss */
+header {
+  background-color: #1b2024;
+}
+
+/* line 349, ../sass/_uncompiled_to_import.scss */
+.teaser {
+  background-color: #fcf8f9;
+}
+
+/* line 354, ../sass/_uncompiled_to_import.scss */
+.services {
+  list-style-type: none;
+  font-size: 24px;
+  text-align: center;
+  color: #696969;
+}
+
+/* line 363, ../sass/_uncompiled_to_import.scss */
+.services__service {
+  height: 240px;
+  padding-top: 83px;
+  padding-bottom: 53px;
+  background-repeat: no-repeat;
+}
+
+/* line 370, ../sass/_uncompiled_to_import.scss */
+.price {
+  margin-top: 15px;
+}
+
+/* line 373, ../sass/_uncompiled_to_import.scss */
+.span_price {
+  font-size: 30px;
+}
+
+/* line 376, ../sass/_uncompiled_to_import.scss */
+.bg1 {
+  background-image: url(../img/icon-office.svg);
+  background-position: 66px calc(100% - 53px);
+}
+
+/* line 381, ../sass/_uncompiled_to_import.scss */
+.bg2 {
+  background-image: url(../img/icon-home.svg);
+  background-position: 40px calc(100% - 53px);
+}
+
+/* line 386, ../sass/_uncompiled_to_import.scss */
+.bg3 {
+  background-image: url(../img/icon-window.svg);
+  background-position: 27px calc(100% - 53px);
+}
+
+/* line 396, ../sass/_uncompiled_to_import.scss */
+.screen2 {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #fff;
+}
+/* line 402, ../sass/_uncompiled_to_import.scss */
+.screen2 h2 {
+  padding-bottom: 64px;
+  font-size: 33px;
+}
+/* line 410, ../sass/_uncompiled_to_import.scss */
+.screen2 .private {
+  margin-left: 10%;
+}
+/* line 413, ../sass/_uncompiled_to_import.scss */
+.screen2 .private__item {
+  margin-bottom: 33px;
+  font-size: 24px;
+}
+/* line 419, ../sass/_uncompiled_to_import.scss */
+.screen2 .private__link {
+  display: block;
+  min-height: 30px;
+  /*bg*/
+  padding-left: 60px;
+  background-image: url("../img/icon-cup.svg");
+  background-repeat: no-repeat;
+}
+/* line 427, ../sass/_uncompiled_to_import.scss */
+.screen2 .private__link--present {
+  min-height: 34px;
+  /*bg*/
+  background-image: url("../img/icon gift.svg");
+}
+
+/* line 434, ../sass/_uncompiled_to_import.scss */
+.button_order {
+  display: block;
+  padding: 16px 8px 16px;
+  border: 3px solid #696969;
+  text-align: center;
+  border-radius: 30px;
+  /*background-image: url("../img/icon broom.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 50%;*/
+}
+
+/* line 448, ../sass/_uncompiled_to_import.scss */
+.glyph_kinda, .button_order span {
+  vertical-align: middle;
+}
+
+/* line 451, ../sass/_uncompiled_to_import.scss */
+.glyph_kinda {
+  margin-right: 5px;
+}
+
+/* line 457, ../sass/_uncompiled_to_import.scss */
+.brands {
+  box-sizing: border-box;
+  min-height: 271px;
+  /*d*/
+  padding: 30px 0;
+  background-color: #f0f0f0;
+}
+/* line 464, ../sass/_uncompiled_to_import.scss */
+.brands h2 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  text-align: center;
+}
+/* line 472, ../sass/_uncompiled_to_import.scss */
+.brands .img--gaz {
+  margin-top: -57px;
+}
+/* line 475, ../sass/_uncompiled_to_import.scss */
+.brands .img--bee {
+  margin-top: -109px;
+}
+
+/* line 481, ../sass/_uncompiled_to_import.scss */
+.contacts {
+  min-height: 450px;
+  /*d*/
+  padding: 25px 0 31px;
+  font-size: 24px;
+  color: #fff;
+  background-color: #b2b2b2;
+}
+
+/* line 494, ../sass/_uncompiled_to_import.scss */
+.contact {
+  float: left;
+  margin-bottom: 22px;
+  background-repeat: no-repeat;
+}
+/* line 500, ../sass/_uncompiled_to_import.scss */
+.contact.tel {
+  padding-left: 33px;
+  /*bg*/
+  min-height: 43px;
+  /*bg*/
+  font-size: 30px;
+  background-image: url("../img/icon%20phone.svg");
+}
+/* line 508, ../sass/_uncompiled_to_import.scss */
+.contact.email {
+  padding-left: 49px;
+  /*bg*/
+  min-height: 37px;
+  /*bg*/
+  background-image: url("../img/icon%20mail.svg");
+}
+/* line 514, ../sass/_uncompiled_to_import.scss */
+.contact.adr {
+  padding-left: 33px;
+  /*bg*/
+  min-height: 39px;
+  /*bg*/
+  background-image: url("../img/icon%20map.svg");
+}
+
+/* line 525, ../sass/_uncompiled_to_import.scss */
+.map {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 670px;
+  height: 260px;
+  max-height: 95vh;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* line 538, ../sass/_uncompiled_to_import.scss */
+.label1 {
+  margin-left: 30px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+/* line 545, ../sass/_uncompiled_to_import.scss */
+.round {
+  box-sizing: border-box;
+  border: none;
+  /* cancel default input*/
+  display: block;
+  padding: 16px 30px 16px;
+  height: 60px;
+  /*db*/
+  margin-bottom: 28px;
+  font-size: 30px;
+  text-align: left;
+  border-radius: 30px;
+  color: #696969;
+  background-color: #f0f0f0;
+  /*background-image: url("../img/icon broom.svg");
+  background-repeat: no-repeat;
+  background-position: 10px 50%;*/
+}
+
+/* line 566, ../sass/_uncompiled_to_import.scss */
+.send {
+  width: 88%;
+  /* 326/370 */
+  margin: 59px 6% 0;
+  /* to sum to 100%*/
+  background-color: #fff;
+}
+
+/* line 574, ../sass/_uncompiled_to_import.scss */
+.footer {
+  min-height: 58px;
+  /*d*/
+  padding: 12px 0;
+  color: #e5e5e5;
+  background-color: #696969;
+}
+
+/* line 585, ../sass/_uncompiled_to_import.scss */
+.svg-icons div {
+  height: 50px;
+}
+
+/* line 589, ../sass/_uncompiled_to_import.scss */
+svg.svg-class {
+  /*height: 40px;
+  width: 50px;
+  margin-left: 15px;*/
+  fill: #2b414d;
+  stroke: blue;
+  stroke-width: 1px;
+}
+
+/*==========  Desktop First Method  ==========*/
+/* Gracefull degr*/
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  /*Disable Animation on Mobile Devices*/
+  /* line 24, ../sass/_media.scss */
+  .animated {
+    /*CSS transitions*/
+    -o-transition-property: none !important;
+    -moz-transition-property: none !important;
+    -ms-transition-property: none !important;
+    -webkit-transition-property: none !important;
+    transition-property: none !important;
+    /*CSS transforms*/
+    -o-transform: none !important;
+    -moz-transform: none !important;
+    -ms-transform: none !important;
+    -webkit-transform: none !important;
+    transform: none !important;
+    /*CSS animations*/
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+  }
+}
+/* X-tremer */
+/* Iphone4 */
+/* Extra Small Devices, Phones */
+/* Custom, iPhone Retina */
+/*==========  Mobile First Method  ==========*/
+/* Custom, iPhone Retina */
+/* Extra Small Devices, Phones */
+/* Small Devices, Tablets */
+/* Medium Devices, Desktops */
+/* Large Devices, Wide Screens */
+/* line 36, ../sass/style.scss */
+.hide {
+  display: none !important;
+}
