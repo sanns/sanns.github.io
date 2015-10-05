@@ -94,19 +94,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   align-items: center;
   margin: 0 auto;
   height: 760px;
+  max-height: 95vh;
   /* remove space under images*/
   font-size: 0px;
   line-height: 0px;
   /*text-align: center; /*╨║╨╛╨│╨┤╨░ ╨║╨░╤А╤В╨╕╨╜╨║╨░ ╨╜╨╡ ╨▓╨╗╨░╨╖╨╕╤В, ╨╛╨╜╨░ ╨▒╤Г╨┤╨╡╤В ╤А╨░╤Б╨┐╨╛╨╗╨░╨│╨░╤В╤М╤Б╤П ╨┐╨╛ ╨╗╨╡╨▓╨╛╨╝╤Г ╨║╤А╨░╤О. ╨ж╨╡╨╜╤В╤А╨╕╤А╨╛╨▓╨░╤В╤М╤Б╤П - ╤В╨╛╨╗╤М╨║╨╛ ╨║╨╛╨│╨┤╨░ ╤И╨╕╤А╨╛╨║╨░╤П ╨╛╨▒╨╗╨░╤Б╤В╤М.*/
 }
 
-/* line 43, ../sass/bem/_slider.scss */
+/* line 44, ../sass/bem/_slider.scss */
 .inline-block-wrapper {
   /* ╤Б╨┤╨╡╨╗╨░╨╡╤В ╤Б╨▓╨╛╤О ╤И╨╕╤А╨╕╨╜╤Г ╨┐╨╛ ╤И╨╕╤А╨╛╤З╨░╨╣╤И╨╡╨╝╤Г ╨║╨╛╨╜╤В╨╡╨╜╤В╤Г*/
   /*position:relative;/* ╨▒╤Л╨╗╨╛ ╨┤╨╗╤П ╨╜╨░╨┤╨┐╨╕╤Б╨╕ ╨╜╨░ ╤Б╨╗╨░╨╣╨┤╨╡*/
 }
 
-/* line 49, ../sass/bem/_slider.scss */
+/* line 50, ../sass/bem/_slider.scss */
 .slider__slide img {
   max-height: 100%;
   max-width: 100%;
@@ -116,7 +117,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   /*╨║╨░╨║ ╨▓╨░╤А╨╕╨░╨╜╤В ╨╕╨╖ jcarusel*/
 }
 
-/* line 61, ../sass/bem/_slider.scss */
+/* line 62, ../sass/bem/_slider.scss */
 .slider__text {
   position: absolute;
   top: 119px;
@@ -127,21 +128,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   line-height: 1;
   color: white;
 }
-/* line 66, ../sass/bem/_slider.scss */
+/* line 67, ../sass/bem/_slider.scss */
 .slider__text h2 {
   margin-bottom: 34px;
 }
-/* line 68, ../sass/bem/_slider.scss */
+/* line 69, ../sass/bem/_slider.scss */
 .slider__text h2 span {
   border-bottom: 1px solid white;
 }
-/* line 72, ../sass/bem/_slider.scss */
+/* line 73, ../sass/bem/_slider.scss */
 .slider__text h2 b {
   text-transform: uppercase;
 }
 
 /* slider 2:*/
-/* line 96, ../sass/bem/_slider.scss */
+/* line 97, ../sass/bem/_slider.scss */
 .slider--small .slider__slide {
   display: inline-block;
   /* cancel flex*/
@@ -154,17 +155,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: center;
   /* if inline block*/
 }
-/* line 103, ../sass/bem/_slider.scss */
+/* line 104, ../sass/bem/_slider.scss */
 .slider--small .inline-block-wrapper {
   height: 44px;
   /*ps*/
 }
-/* line 106, ../sass/bem/_slider.scss */
+/* line 107, ../sass/bem/_slider.scss */
 .slider--small img {
   max-height: none;
 }
 
-/* line 110, ../sass/bem/_slider.scss */
+/* line 111, ../sass/bem/_slider.scss */
 .text-muted {
   margin-top: 15px;
   font-size: 20px;

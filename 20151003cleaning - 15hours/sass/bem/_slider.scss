@@ -33,6 +33,7 @@
     //width: 15px; //что если разные слайды? Хочу сделать по контенту.
     margin: 0 auto;
     height: 760px;
+    max-height: 95vh; //а то зачем на маленьких устройствах мотать вертикальный слайдер.
         
     /* remove space under images*/
     font-size: 0px;
