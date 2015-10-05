@@ -1,0 +1,174 @@
+@import "compass";
+@import "_vars";
+
+.posts {
+    border: 1px solid #cdcdcd;
+}
+
+.post {
+    display: block;
+    //border: 1px solid #cdcdcd;
+    //margin-bottom: -1px;
+    padding: 19px 19px; //тк бордер
+    
+    @extend %PTSansReg;
+    font-size: 14px;
+    
+    color: #959595;
+    background-color: #f0f0f0;
+    
+    &:not(:first-child) {
+        border-top: 1px solid #f9f9f9;
+    }
+    &:not(:last-child) {
+        border-bottom: 1px solid #cdcdcd;
+    }
+}
+
+
+
+
+
+
+.post__h-left {
+    float: left;
+
+    max-width: 50%;
+    
+    
+    @extend %PTSansNB;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.013;
+    
+    color: #494949;
+}
+
+.post__h-right {
+    float: right;
+    max-width: 50%;
+}
+
+
+
+
+
+%iconed-big {
+    
+    min-height: 32px;
+    height: 32px; //фикс т.к. спрайт
+    line-height: 32px;
+    //background-size: 32px 32px;// не для спрайтов
+}
+%iconed{
+    $iconH: 14px;
+    display: inline-block;
+    //float: left;
+    padding-left: $iconH+8px;
+    min-height: $iconH;
+    height: $iconH; //фикс т.к. спрайт
+    margin-left: 25px;
+    
+    @extend %PTSansReg;
+    font-size: 14px;
+    letter-spacing: 0.013px;
+    vertical-align: middle;
+    line-height: $iconH;
+
+    color: #999797;
+    background-image: url(../img/icons-sprite.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    background-size: 14px; //пропорционально уменьшится
+}
+.post__date{
+    @extend %iconed;
+    
+}
+.post__comm{
+    @extend %iconed;
+
+    background-position: 0 -18px;
+    //background-size: 14px;
+}
+
+
+
+
+
+
+
+.post__img {
+    display: inline-block; /* will be image-width*/
+    position: relative;
+    margin-top: 20px;
+    
+    /* remove space under img*/
+    font-size: 0px; 
+    line-height: 0px;
+}
+.post__overlay {
+    &:before {
+        content:'';
+        
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        margin-left: -16px;
+        margin-top: -16px;
+        display: block;
+        height: 32px;
+        width: 32px;
+        
+        background: url($icons-sprite) no-repeat 0 -86px ;
+    }
+    
+    
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    
+    opacity: 0;
+    // Needs latest Compass, add '@import "compass"' to your scss
+    // Permalink - use to edit and share this gradient:
+    // http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100
+    //@include filter-gradient(#00000000, #000000, horizontal); // IE6-9 fallback on horizontal gradient
+    @include background-image(
+        radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%)
+    );
+    background-size: auto; /* override mixin*/
+    background-color: transparentize(white, .5);
+    
+    
+    transition: opacity .2s ease-in-out 0s;
+    &:hover {
+        opacity: 1;
+        box-shadow: inset 0 0 0 1px $CRIMSON;
+    }
+    a {
+        display: block;
+        height: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+.post__text {
+    margin-top: 20px;
+}
+
+.post__read {
+    margin-top: 52px;
+    
+    @extend %PTSansN;
+    font-size: 14px;
+    text-align: right;
+    
+    color: #2a99d8;
+}

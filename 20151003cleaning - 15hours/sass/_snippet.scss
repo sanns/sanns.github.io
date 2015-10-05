@@ -1,0 +1,470 @@
+/* 
+ver. 0.100
+Author:
+*/
+
+
+/* reset.css */
+@import url("reset.css"); /*можно подключить так*/
+
+
+@font-face {
+    font-family: OpenSansCondLight; /* Имя шрифта */
+    src:  url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,cyrillic,cyrillic-ext); /* Путь к файлу со шрифтом */
+} @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,cyrillic,cyrillic-ext);
+
+
+@font-face {
+	font-family: MyriadProRegular;
+	src: url('../fonts/myriadpro-regular.otf');
+}
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"Open Sans Condensed Light";
+    src:url("../fonts/OpenSans-CondLight.eot?") format("eot"),
+        url("../fonts/OpenSans-CondLight.woff") format("woff"),
+        url("../fonts/OpenSans-CondLight.ttf") format("truetype"),
+        url("../fonts/OpenSans-CondLight.svg#OpenSans-CondensedLight") format("svg");
+    font-weight:normal;font-style:normal;}
+
+
+
+
+/* некоторые стили для тегов без классов. Что-то типа reset.css*/
+*{
+	margin: 0;
+	padding: 0;
+}
+li {
+	/*list-style-type: none;*/ /* мешает при inherit. Может лучше поставить для ul или вообще не ставить для тегов*/
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:visited {
+    color: inherit;
+}
+
+.clear {
+	clear: both;
+}
+.fll{
+	float: left;
+}
+.flr{
+	float: right;
+}
+.row {
+	max-width: 980px;
+    padding: 0 10px;
+	margin: 0 auto;
+}
+.row:after {
+	clear: both;
+	display: table;
+	/*display:none;*/
+	  content: "";
+}
+.hide {
+	display: none;
+}
+
+
+
+
+
+
+
+/* Макет */
+body {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14px;
+    line-height: 22px;
+    
+    color: #767676;
+    
+}
+
+
+
+
+.wrapper {
+    min-width: 320px;
+}
+.header {
+    box-sizing: border-box;
+    min-height: 230px;
+    padding-bottom: 5px;
+    
+    color: #767676;
+    background-color: #dcdcdc;
+}
+            /* центрование вертикали*/
+            .header>.row {
+                height: 100%;
+            }
+            .header>.row:before { /* для центря вложенных*/
+              content: '';
+              display: inline-block;
+              height: 100%;
+              vertical-align: middle;
+            }
+            .header__logo {
+                margin-top: 65px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: -0.35em; /* убрать пробел*/
+            }
+.logo {
+    /*float: left;*/
+    width: 280px;
+}
+.logo__img {
+    float: left;
+    max-width: 100%;
+    padding-right: 13px;
+    
+}
+.logo__co-name {
+    /*float: left; какие-то проблемы с размером h1*/
+    padding: 8px 0px 3px 8px;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+.logo__slogan {
+    float: left;
+}
+
+.tel {
+    float: right;   
+    margin-top: 39px;
+    
+    font-family: OpenSansCondLight, courier;
+    font-family: "Open Sans Condensed Light" , courier;
+    font-size: 40px;
+    line-height: 46px;
+    
+    text-align: right; /* float - для box, ta - для текста*/
+}
+.tel__feedback {
+    float: right;
+    
+    border-bottom: dashed 1px #767676;
+    
+    font-family: 'PT Sans', courier;
+    font-weight: bold;
+    font-size: 24px;
+    /*letter-spacing: 25;??*/
+}
+.tel__underline {
+    font-family: "Open Sans Condensed Light";
+    font-size: 28px;
+    
+    color: red;
+}
+
+
+
+/*menu*/
+.menu {
+    
+    color: #fff;
+    background-color: #777;
+}
+.nav {
+   /* width: 500px;
+    margin: 0 auto;   */
+    
+    font-size: 30px;
+    line-height: 80px;
+}
+.nav--inline {
+    text-align: center;
+}
+.nav--inline__item {
+    display: inline-block;
+}
+.nav--inline__item:not(:last-child):after {
+    content: " | ";
+    
+}
+
+
+
+/*slider*/
+.slider {
+    height: 400px;
+    
+    background-color: #f8f8f8;
+}
+.slider__slide {
+    max-height: 400px;
+    overflow: hidden;
+    
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    /* align-content: center; */
+    align-items: flex-end;
+    
+    /*text-align: center; /*когда картинка не влазит, она будет располагаться по левому краю. Центрироваться - только когда широкая область.*/
+}
+.slider__slide>img {
+    /*max-width: 100%;*/
+    /*height: auto;
+    max-height: 400px;*/ /*как вариант из jcarusel*/
+}
+
+
+
+
+/*content*/
+.content {min-height: 1385px} /* min,чтоб адаптивную тестить. height-чтобы макет тестить.*/
+.breadcrumbs {
+    margin-bottom: 20px;
+    font-size: 14px;
+    list-style-type: none;
+    line-height: 30px;
+    
+    color: #767676;
+}
+.breadcrumbs__item {
+    display: inline-block;
+}
+.breadcrumbs__item:not(:last-child):after {
+    content: " /"
+}
+.breadcrumbs__item:not(:last-of-type)>.breadcrumbs__link {
+    text-decoration: underline;
+}
+
+
+.leftblock {
+    float: left;
+}
+.centerblock {
+    float: right;
+    max-width: 780px
+}
+.centerblock {
+    
+}
+.price-list {
+    margin-top: 108px;
+    margin-bottom: 15px;
+    
+    text-align: center;
+}
+
+
+.cat {
+    margin-top: -3px; /* в фотошопе высота строки не сдвигает первую строчку*/
+    
+    font-size: 18px;
+    line-height: 30px;
+    list-style-type: none;
+}
+.cat--lvl2 {
+    margin-left: 10px;
+    
+    font-size: 14px;
+    line-height: 22px;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+.cat__link--active , .cat__link:hover {
+    text-decoration: underline;
+} /* не получается так */
+.cat--lvl2__link--active, .cat--lvl2__link:hover {
+    color: #000;
+}
+
+
+.cat__item>.cat--lvl2 {
+    display: none;
+}
+.cat__item--active>.cat--lvl2
+, .cat__item:hover>.cat--lvl2 { /* не бэм. Если есть вложенное, то покажет*/
+    display: block;
+}
+.price-list>p {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+
+
+/*
+.gallery__item {
+    float: left;
+}
+.gallery:after {
+	clear: both;
+	display: table;
+    content: "";
+}*/
+.gallery {
+    margin-bottom: 61px;
+    
+}
+.gallery__paging {
+    margin-top: 8px;
+    
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.56em;
+    
+    list-style-type: none;
+    text-align: center;
+}
+.gallery__paging__item{
+    display: inline-block;
+        
+    transition: font-size 1s ease-in-out ;
+}
+.gallery__paging__item--active , .gallery__paging__item:hover{
+    display: inline-block;
+    
+    font-size: 18px;
+    
+    color: #444;
+}
+
+
+.card {
+    box-sizing: border-box;
+    width: 250px;
+    height: 380px;
+    padding: 20px;
+    
+    background-color: #dcdcdc;
+}
+.card {
+    width: 250px;
+    margin-right: 15px;
+    margin-bottom: 20px;
+}
+.card:nth-child(3n) {
+    margin-right: 0px;
+}
+.card__img {
+    margin-bottom: 20px;
+    
+    /*line-height: 0px; /* отступ под картинкой убрать*/
+    
+    box-shadow: inset 0 0 10px 2px red;
+}
+.card__desc {
+    height: 90px;
+    margin-top: -6px;
+    
+    font-size: 18px;
+    line-height: 18px;
+}
+.card__prc {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+
+.gallery__viewport {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+
+
+
+
+.columns-bl {
+    margin-top: 24px;
+    
+    letter-spacing: 0.015em;
+    /*-webkit-columns: 2 12em;*/
+}
+.columns-bl__col {
+    float: left;
+    
+    max-width: 370px;
+    margin-right: 40px;
+    margin-bottom: 1em; /*для красоты при мобильной версии*/
+}
+.columns-bl__col:last-of-type {
+    margin-right: 0;
+}
+
+
+/*footer*/
+.footer{
+    min-height: 176px; /* 220 с паддингом*/
+    padding-top: 44px;
+    
+    color: #fff;
+    background-color: #777;
+}
+
+
+.footer__col {
+    float: left;
+    box-sizing: border-box;
+    width: 33.3333333%;
+    min-width: 200px;
+    margin-bottom: 15px;
+}
+
+.footer__col1 {
+    /*max-width: 200px;*/
+}
+
+.footer__col2 {
+  /*  max-width: 220px;*/
+    padding-left: 23px;
+}
+
+.footer__col3 {
+  /*  max-width: 230px;*/
+}
+
+
+.nav2 {
+    line-height: 26px;
+    list-style-type: none;
+}
+
+
+
+
+
+
+.logo2 {
+    /*float: left;*/
+    max-width: 214px;
+}
+.logo2__img {
+    float: left;
+    max-width: 100%;
+    padding: 0 9px 9px 0;
+    
+}
+.logo2__co-name {
+    margin: 8px 0px 3px 8px;
+    font-size: 14px;
+    line-height: 22px;
+}
+.logo2__slogan {
+    float: left;
+}
+
+
+
+.a-btn:hover img{
+ transform: scale(10);
+ opacity: 0;
+ //transition: transform, opacity
+}
+.a-btn:active .a-btn-icon-right span{
+ transform: rotate(360deg);
+}

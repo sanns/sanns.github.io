@@ -1,0 +1,310 @@
+@import "_vars";
+.navi-background{
+    
+    background-image: url(../img/navi-bg.jpg);
+    background-image: url(../img/navi-bg.png);
+    background-repeat: repeat-x;
+    background-position: center center;
+}
+
+
+
+
+//---------------------------
+
+.navi {
+    position: relative; /* for lvl2*/
+    height: 74px;
+    
+    @extend %ProximaNL;
+    font-size: 20.25px;
+    
+    text-align: center;
+    list-style-type: none;
+    text-transform: uppercase;
+    
+    z-index: 1000; /* to be on top of everything when opened*/
+    color: $bronzInit;
+}
+
+    .navi--closed .navi__subthing {
+        display: none;
+    }
+
+
+.navi .containerow {
+    height: 100%;
+}
+
+
+
+$black_padding: 22px;
+.navi__item {
+    @extend .navi__item--inclusive;
+    
+    
+    position: relative;
+    display: inline-block;
+    height: 100%; /* for link*/
+    //min-width: 17.5%;//тогда суммарно 100% или больше(по размеру контентов).
+    min-width: 3em; /*appx 3 letters*/
+    width: 17.5%;
+    
+    vertical-align: top;
+    //background-color: blanchedalmond;
+   /* 
+    &:nth-child(1){
+        //width: 122px;
+        width: 20%;
+    }
+    &:nth-child(2){
+        //width: 127px;
+        width: 20%;
+    }
+    &:nth-child(3){
+        //width: 306px;
+        width: 20%;
+    }
+    &:nth-child(4){
+        //width: 127px;
+        width: 20%;
+    }
+    &:nth-child(5){
+       // width: 157px;
+        width: 20%;
+    }*/
+    
+    &:before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: calc(100% + #{$black_padding} + 20px - 12px);
+        left: calc(50% - 7px);
+        
+        border-bottom: 12px $VIOLET solid;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+    
+    //окрас
+    &:hover .navi__link, 
+    &.active .navi__link {
+        color: $CRIMSON;
+        background-color: $menu-hover;
+    }
+    
+    &:first-child {
+        text-align: left;
+        .navi__link {
+            margin-left: -25px;
+        }
+    }
+    &:last-of-type {
+        text-align: right;
+        .navi__link {
+            margin-right: -25px;
+        }
+    }
+} //.navi__item
+
+
+.navi__link {
+    display:inline-block;
+    padding: 29px 25px ;
+    
+    box-sizing: border-box;
+    height: 100%;
+    //padding: 15px $black_padding;
+    
+}
+
+
+.navi__subthing {
+    @extend .navi__subthing--bdt;
+    position: absolute;
+    left: -62px;
+    top: 100%;  //calc(100% + 21px);
+}
+
+
+
+
+
+.navi--lvl2 {
+    max-width: 100vw;
+    width: 424px;
+    height: 212px;
+    
+    /*overflow: hidden;*//* зачем?*/
+    list-style-type: none;
+    
+    z-index: 1000;
+}
+
+
+
+.navi__item--pdbt {
+    padding-bottom: $black_padding+20px;
+    //border-bottom: 20px solid transparent;
+    
+    &:before {
+        display: none;
+        content: '';
+        position: absolute;
+        top: calc(100% - 12px);
+    }
+}
+.navi__item--block {
+    width: auto;
+    border-bottom: 1px solid; //цвет шрифта
+}
+
+
+
+
+.ham{
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+}
+.ham__link {
+    display: inline-block; /* for pd top*/
+    box-sizing: border-box;
+    height: 100%;
+    padding: 29px 25px;
+    
+    &::before {
+        content: "☰";
+    }
+}
+.ham__label{
+    
+    &:hover{
+        color: #ccc;
+        cursor: pointer;
+    }
+}
+#ham__check1{
+    display:none;
+}
+.ham--added {
+    display: none;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+}
+
+
+
+
+//$not-fitting-in-less-than: 768px;
+$not-fitting-in-less-than: 600px; //до 600 - это 360, но не 640 :)
+//
+//
+//
+@media only screen and (max-width : $not-fitting-in-less-than) {
+    
+    //дублировал для @медиа.КОСЯК. 
+    .navi__item--block-copy {
+        width: auto;
+        border-bottom: 1px solid; //цвет шрифта
+    }
+    
+    
+    .navi__item {
+        display: none;
+        height: auto;
+    }
+    .navi--closed .navi__subthing{
+        position: static;
+        display: block;
+    }
+    
+    
+    //По идее ham__check должен быть виден и с галочкой только в моб версии, так что можно все это засунуть в @media, чтобы точно не работало в остальных "директивах".
+    #ham__check1{
+        display:none;
+        &:checked ~ * .navi{
+
+            .navi__item {
+                display: block;
+                @extend .navi__item--block-copy;
+
+
+                background-color: rgb(35, 25, 58);
+            }
+            .navi__item:first-child {
+                text-align: inherit;
+            }
+            .navi__item:first-child .navi__link {
+                margin-left: auto;
+            }
+            .logo2 {
+                display:none;
+            }
+            .ham--added {
+                display: inline-block;
+            }
+
+        }
+        //
+        &:checked + .wrapper {
+            position: relative; /*for :before-height%*/
+            &:before {
+                content: "";
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background-color: rgba(26, 11, 40, 0.72);
+                background-image: url(../img/pattern.png);
+                background-repeat: repeat;
+                z-index: 1000; /* less than dropdown menu*/
+            }
+        }
+    }
+    
+    
+}
+
+
+/*
+ *min
+*/
+@media only screen and (min-width : $not-fitting-in-less-than) {
+    //----------------так нельзя
+    //.navi{
+    //    @extend .navi--closed; /*instead adding html class*/
+    //}
+    //--------------------------
+    .ham{
+        display: none;
+    }
+    
+    
+    // Решил , что можно сбросить в эту медию всё, что добавляет ховер-поведение, Ведь в противоположной медии этого поведения быть не должно вообще. Старался оставить вне медий только общие для ВСЕХ медий.
+    .navi__subthing{
+        @extend .navi__subthing--bdt;
+    }
+    
+    .navi__item {
+        @extend .navi__item--inclusive;
+    }
+    
+    .navi__subthing--bdt {
+        border-top: $black_padding+20px solid transparent;
+    }
+
+    .navi__item--inclusive { //включающий скрываемое по hover-поведению
+        
+        //стрелочка-маркер:
+        &:hover:before, &.active:before {
+            display: block;    
+        }
+        &:hover   .navi__subthing, //все под-под-...-меню
+    &.active   .navi__subthing {
+            display: block;
+        }
+    }
+    //Прваильно было бы отображать/скрывать anti-hover меню не от размера экрана, а от сенсорности дисплея.
+}
